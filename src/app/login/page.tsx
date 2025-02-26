@@ -39,7 +39,7 @@ export default function Page() {
               type="password" 
               placeholder="Coloque su contraseña" 
               className="w-full font-bebas-neue text-2xl bg-[#005452] border-0 rounded-md text-white placeholder:text-[#E4FFFC]"/>
-          </div>
+          </div>z
           <Button type="submit" className="w-[3/10] font-bebas-neue font-bold bg-[#36C34B] hover:bg-[#2ca33e] transition-colors duration-[10s] text-white text-base rounded-3xl block mt-6 text-center mx-auto">Iniciar sesión</Button>
         </form>
       </div>

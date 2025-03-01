@@ -18,13 +18,18 @@ export default function Page() {
   const validateForm = () => {
     const newErrors:  { username?: string; password?: string }  = {}
     if (!username.trim()) {
-      newErrors.username = "Username is required"
+      newErrors.username = "El correo electrónico es obligatorio"
+    } else if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(username)) {
+      newErrors.username = "Por favor, ingrese un correo electrónico válido"
     }
-    if (!password.trim()) { 
-      newErrors.password = "Password is required"
-      } else if (password.length < 0 ) {
-        newErrors.password = "Password must be at least 8 characters"
-      }
+
+    if (!password) {
+      newErrors.password = "La contraseña es obligatoria"
+    } else if (password.length < 8) {
+      newErrors.password = "La contraseña debe tener al menos 8 caracteres"
+    } else if (!/[*!@#$%&]/.test(password)) {
+      newErrors.password = "La contraseña debe contener al menos un carácter especial (*!@#$%&)"
+    }
 
       setErrors(newErrors)
       return Object.keys(newErrors).length === 0
@@ -43,12 +48,13 @@ export default function Page() {
       const result = await login({ username, password })
 
       if (result.success) {
-        router.push("/home")
+        router.push("/")
       } else {
         setErrors({ general: result.error || "Credenciales Invalidas" })
       }
     } catch (error) {
-      console.error({ general: "ocurrio un error al iniciar sesion", error })
+      console.error("Error durante el inicio de sesión: ", error) 
+      setErrors({ general: "Ocurrio un error al iniciar sesion" })
     } finally {
       setIsLoading(false)
     }

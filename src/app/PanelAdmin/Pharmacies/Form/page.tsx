@@ -1,12 +1,15 @@
-import React from 'react';
-import Header from '@/components/ui/header';
-import Footer from '@/components/ui/footer';
+import React from "react";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 export default function Page() {
   return (
-    <div className="flex flex-col min-h-screen" style={{ backgroundColor: "#E0FFFF" }}>
+    <div
+      className="flex flex-col min-h-screen"
+      style={{ backgroundColor: "#E0FFFF" }}
+    >
       <Header />
       <main className="flex-grow container mx-auto px-4 py-8">
         <div className="mb-4 flex items-center justify-center">
@@ -34,7 +37,10 @@ export default function Page() {
               />
             </div>
             <div className="m-6 flex gap-2">
-              <label className="text-[#024442] p-1 my-2"> Historial de pedidos: </label>
+              <label className="text-[#024442] p-1 my-2">
+                {" "}
+                Historial de pedidos:{" "}
+              </label>
               <Input
                 type="text"
                 placeholder="Pedidos de la sucursal de la farmacia"
@@ -42,7 +48,10 @@ export default function Page() {
               />
             </div>
             <div className="m-6 flex gap-2">
-              <label className="text-[#024442] p-1 my-2"> Historial de compras: </label>
+              <label className="text-[#024442] p-1 my-2">
+                {" "}
+                Historial de compras:{" "}
+              </label>
               <Input
                 type="text"
                 placeholder="Compras de la sucursal de la farmacia"

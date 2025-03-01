@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowLeft, Pill } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -12,26 +12,15 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import Link from "next/link";
+import Footer from "@/components/footer";
+import Header from "@/components/header";
 
 export default function PurchaseForm() {
   const [quantity, setQuantity] = useState(1);
 
   return (
     <div className="min-h-screen bg-[#e0ffff]">
-      {/* Header */}
-      <header className="bg-[#005452] p-4 flex justify-between items-center">
-        <div className="flex items-center gap-4">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#007863]">
-            <Link href="/">
-              <Pill className="h-8 w-8 text-primary-foreground" />
-            </Link>
-          </div>
-          <h1 className="text-white text-4xl font-bold">FARMATORONTO</h1>
-        </div>
-        <div className="w-12 h-12 bg-[#c5ddd6] rounded-full flex items-center justify-center">
-          <div className="w-6 h-6 border-4 border-[#005452] rounded-full" />
-        </div>
-      </header>
+      <Header />
 
       {/* Main Content */}
       <main className="p-6 max-w-6xl mx-auto">
@@ -44,15 +33,11 @@ export default function PurchaseForm() {
           </Link>
         </Button>
 
-        <h2
-          className="text-6xl font-bold text-center mb-12 text-[#04232f] tracking-wider"
-          style={{
-            WebkitTextStroke: "2px currentColor",
-            WebkitTextFillColor: "transparent",
-          }}
-        >
-          COMPRA DE INSUMOS
-        </h2>
+        <div className="mb-4 flex items-center justify-center">
+          <h1 className="text-6xl font-bold text-header mb-6 font-bebas-neue text-white text-shadow-outline tracking-wide">
+            COMPRA DE INSUMOS
+          </h1>
+        </div>
 
         <div className="grid md:grid-cols-[1fr_auto] gap-8">
           {/* Form Card */}
@@ -109,19 +94,10 @@ export default function PurchaseForm() {
             <div className="text-6xl font-bold text-[#04232f]">$$$</div>
 
             <div className="flex items-center gap-4">
-              <Button
-                onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                className="bg-[#68e99d] hover:bg-[#68e99d]/90 h-12 w-12 text-2xl"
-              >
-                -
-              </Button>
-              <span className="text-xl font-medium">Cantidad</span>
-              <Button
-                onClick={() => setQuantity(quantity + 1)}
-                className="bg-[#68e99d] hover:bg-[#68e99d]/90 h-12 w-12 text-2xl"
-              >
-                +
-              </Button>
+              <Input
+                placeholder="Ingrese cantidad"
+                className="border-4 border-solid "
+              />
             </div>
 
             <div className="flex flex-col items-center gap-2">
@@ -140,10 +116,7 @@ export default function PurchaseForm() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-[#04232f] text-white p-4 text-center mt-12">
-        2025 - FarmaToronto
-      </footer>
+      <Footer />
     </div>
   );
 }

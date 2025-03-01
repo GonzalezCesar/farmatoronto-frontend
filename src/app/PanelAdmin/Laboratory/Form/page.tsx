@@ -1,16 +1,21 @@
-import React from 'react'
-import Header from '@/components/ui/header'
-import Footer from '@/components/ui/footer'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
+import React from "react";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export default function Page() {
   return (
-    <div className="flex flex-col min-h-screen" style={{ backgroundColor: "#E0FFFF" }}>
+    <div
+      className="flex flex-col min-h-screen"
+      style={{ backgroundColor: "#E0FFFF" }}
+    >
       <Header />
       <main className="flex-grow container mx-auto px-4 py-8">
         <div className="mb-4 flex items-center justify-center">
-            <h1 className="text-5xl font-bold text-header mb-6 font-bebas-neue text-white text-shadow-outline tracking-wide">REGISTRO DE NUEVO PROVEEDOR</h1>
+          <h1 className="text-5xl font-bold text-header mb-6 font-bebas-neue text-white text-shadow-outline tracking-wide">
+            REGISTRO DE NUEVO PROVEEDOR
+          </h1>
         </div>
 
         <div className="bg-white shadow-md rounded-lg p-4 block m-5 mx-auto max-w-[60%]">

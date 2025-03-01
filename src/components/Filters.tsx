@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { Input } from "./ui/input";
+import Link from "next/link";
 
 export const Filters: React.FC = () => {
   const { filters, setFilters } = useFilters();
@@ -42,7 +43,11 @@ export const Filters: React.FC = () => {
           <h1 className="text-3xl font-bold text-primary-foreground">
             FARMATORONTO
           </h1>
-          <span className="text-sm text-primary-foreground">Administrador</span>
+          <Link href="/login">
+            <button className="text-sm text-primary-foreground bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-2 px-4 rounded cursor-pointer transition duration-300 ease-in-out">
+              Administrador
+            </button>
+          </Link>
         </div>
       </div>
 
@@ -85,7 +90,7 @@ export const Filters: React.FC = () => {
             <DropdownMenuItem
               onSelect={() => handleChangeCategory("Vitaminas")}
             >
-              Vitaminas
+              Belleza
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

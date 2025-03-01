@@ -20,7 +20,7 @@ export default function Page() {
               height={100} 
               className="rounded-full" />
           </div>
-          <h1 className="text-5xl not-italic font-extrabold text-white drop-shadow-lg font-bebas-neue">INGRESO</h1>
+          <h1 className="text-5xl not-italic font-extrabold text-white text-shadow-outline font-bebas-neue">INGRESO</h1>
         </div>
 
         <form className="space-y-6">
@@ -39,7 +39,7 @@ export default function Page() {
               type="password" 
               placeholder="Coloque su contraseña" 
               className="w-full font-bebas-neue text-2xl bg-[#005452] border-0 rounded-md text-white placeholder:text-[#E4FFFC]"/>
-          </div>z
+          </div>
           <Button type="submit" className="w-[3/10] font-bebas-neue font-bold bg-[#36C34B] hover:bg-[#2ca33e] transition-colors duration-[10s] text-white text-base rounded-3xl block mt-6 text-center mx-auto">Iniciar sesión</Button>
         </form>
       </div>

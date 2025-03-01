@@ -69,7 +69,7 @@ export default function Page() {
               height={100} 
               className="rounded-full" />
           </div>
-          <h1 className="text-5xl not-italic font-extrabold text-white drop-shadow-lg font-bebas-neue">INGRESO</h1>
+          <h1 className="text-5xl not-italic font-extrabold text-white text-shadow-outline font-bebas-neue">INGRESO</h1>
         </div>
 
         {errors.general && (

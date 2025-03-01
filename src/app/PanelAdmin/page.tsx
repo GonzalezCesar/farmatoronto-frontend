@@ -18,7 +18,7 @@ export default function Home() {
         </div>
         <div className="block">
           <div className="bg-white shadow-md rounded-lg p-4 block m-5">
-            <Link href="/shopping-panel">
+            <Link href="PanelAdmin/shopping-panel">
               <h2 className="text-2xl text-[#0C4835] font-semibold text-header mb-1">
                 Compra de insumos
               </h2>
@@ -27,7 +27,7 @@ export default function Home() {
           </div>
 
           <div className="bg-white shadow-md rounded-lg p-4 block m-5">
-            <Link href="">
+            <Link href="PanelAdmin/Medicines">
               <h2 className="text-2xl text-[#0C4835] font-semibold text-header mb-1">
                 Medicamentos
               </h2>
@@ -36,7 +36,7 @@ export default function Home() {
           </div>
 
           <div className="bg-white shadow-md rounded-lg p-4 block m-5">
-            <Link href="">
+            <Link href="PanelAdmin/Laboratory">
               <h2 className="text-2xl text-[#0C4835] font-semibold text-header mb-1">
                 Laboratorios
               </h2>
@@ -45,7 +45,7 @@ export default function Home() {
           </div>
 
           <div className="bg-white shadow-md rounded-lg p-4 block m-5">
-            <Link href="">
+            <Link href="PanelAdmin/Pharmacies">
               <h2 className="text-2xl text-[#0C4835] font-semibold text-header mb-1">
                 Sucursales
               </h2>

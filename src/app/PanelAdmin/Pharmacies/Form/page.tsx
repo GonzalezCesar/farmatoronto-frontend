@@ -37,6 +37,7 @@ export default function Page() {
               />
             </div>
             <div className="m-6 flex gap-2">
+<<<<<<< HEAD
               <label className="text-[#024442] p-1 my-2">
                 {" "}
                 Historial de pedidos:{" "}
@@ -55,6 +56,12 @@ export default function Page() {
               <Input
                 type="text"
                 placeholder="Compras de la sucursal de la farmacia"
+=======
+              <label className="text-[#024442] p-1 my-2"> Ciudad: </label>
+              <Input
+                type="text"
+                placeholder="Ciudad de la sucursal de la farmacia"
+>>>>>>> develop
                 className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
               />
             </div>

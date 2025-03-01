@@ -79,13 +79,6 @@ export default function PurchaseForm() {
                 </Select>
               </div>
 
-              <div className="grid gap-2">
-                <label className="text-xl">Analista de compra</label>
-                <Input
-                  placeholder="Nombre del analista"
-                  className="bg-[#e0ffff] border-none h-12"
-                />
-              </div>
             </div>
           </div>
 

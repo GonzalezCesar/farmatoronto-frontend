@@ -34,18 +34,10 @@ export default function Page() {
               />
             </div>
             <div className="m-6 flex gap-2">
-              <label className="text-[#024442] p-1 my-2"> Historial de pedidos: </label>
+              <label className="text-[#024442] p-1 my-2"> Ciudad: </label>
               <Input
                 type="text"
-                placeholder="Pedidos de la sucursal de la farmacia"
-                className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
-              />
-            </div>
-            <div className="m-6 flex gap-2">
-              <label className="text-[#024442] p-1 my-2"> Historial de compras: </label>
-              <Input
-                type="text"
-                placeholder="Compras de la sucursal de la farmacia"
+                placeholder="Ciudad de la sucursal de la farmacia"
                 className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
               />
             </div>

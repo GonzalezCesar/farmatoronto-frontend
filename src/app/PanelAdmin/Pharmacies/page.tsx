@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import PharmacyThing from "@/components/ui/pharmacyThing";
+import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
 
 export default function page() {
   return (
@@ -12,6 +14,14 @@ export default function page() {
     >
       <Header />
       <main className="flex-grow container mx-auto px-4 py-8">
+      <Button
+          variant="ghost"
+          className="mb-8 bg-[#68e99d] hover:bg-[#68e99d]/90 h-12 w-12"
+        >
+          <Link href="/PanelAdmin">
+            <ArrowLeft className="h-6 w-6" />
+          </Link>
+        </Button>
         <div className="mb-4 flex items-center justify-center">
           <h1 className="text-6xl font-bold text-header mb-6 font-bebas-neue text-white text-shadow-outline tracking-wide">
             SUCURSALES
@@ -20,7 +30,8 @@ export default function page() {
 
         <div className="bg-white shadow-md rounded-lg p-4 block m-5">
           <PharmacyThing />
-          <div className="grid grid-cols-5 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
+          {/* Atributos de la BD*/}
+          <div className="grid grid-cols-4 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
             <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
               Codigo
             </h2>
@@ -31,13 +42,11 @@ export default function page() {
               Contacto
             </h2>
             <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
-              Historial de pedidos
-            </h2>
-            <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
-              Historial de compras
+              Ciudad
             </h2>
           </div>
-          <div className="grid grid-cols-5 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
+          {/* Campos a llenar */}
+          <div className="grid grid-cols-4 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
             <h2 className="text-sm text-black font-light text-header my-1.5 justify-center text-center">
               01
             </h2>
@@ -48,27 +57,21 @@ export default function page() {
               toronto1@gmail.com
             </h2>
             <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              Pedido de rifaximina, ibuprofeno...
-            </h2>
-            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              Compra de loratadina. alcohol isopropílico,....
+              Ciudad Guayana
             </h2>
           </div>
-          <div className="grid grid-cols-5 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
+          <div className="grid grid-cols-4 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
             <h2 className="text-sm text-black font-light text-header my-1.5 justify-center text-center">
               02
             </h2>
             <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              Av. Guarapiche
+              Av. Playalinda
             </h2>
             <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
               toronto2@gmail.com
             </h2>
             <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              Pedido de rifaximina, ibuprofeno...
-            </h2>
-            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              Compra de loratadina. alcohol isopropílico,....
+              Lechería
             </h2>
           </div>
         </div>

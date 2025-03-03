@@ -20,7 +20,7 @@ export default function Home() {
         </div>
         <div className="block">
           <div className="bg-white block m-5 border text-card-foreground group relative bg-gradient-to-br from-[#c0fff5] to-[#538c83]/10 rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-            <Link href="/shopping-panel" className="">
+            <Link href="PanelAdmin/shopping-panel" className="">
               <h2 className="text-2xl text-[#0C4835] font-semibold text-header mb-1 ">
                 Compra de insumos
               </h2>
@@ -29,7 +29,7 @@ export default function Home() {
           </div>
 
           <div className="bg-white block m-5 border text-card-foreground group relative bg-gradient-to-br from-[#c0fff5] to-[#538c83]/10 rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-            <Link href="">
+            <Link href="PanelAdmin/Medicines">
               <h2 className="text-2xl text-[#0C4835] font-semibold text-header mb-1">
                 Medicamentos
               </h2>
@@ -38,7 +38,7 @@ export default function Home() {
           </div>
 
           <div className="bg-white block m-5 border text-card-foreground group relative bg-gradient-to-br from-[#c0fff5] to-[#538c83]/10 rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-            <Link href="">
+            <Link href="PanelAdmin/Laboratory">
               <h2 className="text-2xl text-[#0C4835] font-semibold text-header mb-1">
                 Laboratorios
               </h2>
@@ -47,7 +47,7 @@ export default function Home() {
           </div>
 
           <div className="bg-white block m-5 border text-card-foreground group relative bg-gradient-to-br from-[#c0fff5] to-[#538c83]/10 rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-            <Link href="">
+            <Link href="PanelAdmin/Pharmacies">
               <h2 className="text-2xl text-[#0C4835] font-semibold text-header mb-1">
                 Sucursales
               </h2>

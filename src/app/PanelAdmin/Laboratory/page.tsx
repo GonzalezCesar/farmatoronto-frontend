@@ -3,6 +3,8 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import AdminThings from "@/components/ui/adminThings";
+import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
 
 export default function page() {
   return (
@@ -12,6 +14,14 @@ export default function page() {
     >
       <Header />
       <main className="flex-grow container mx-auto px-4 py-8">
+      <Button
+          variant="ghost"
+          className="mb-8 bg-[#68e99d] hover:bg-[#68e99d]/90 h-12 w-12"
+        >
+          <Link href="/PanelAdmin">
+            <ArrowLeft className="h-6 w-6" />
+          </Link>
+        </Button>
         <div className="mb-4 flex items-center justify-center">
           <h1 className="text-6xl font-bold text-header mb-6 font-bebas-neue text-white text-shadow-outline tracking-wide">
             LISTADO DE PROVEEDORES

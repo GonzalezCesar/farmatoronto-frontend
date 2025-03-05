@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { FiltersProvider } from "../context/filters";
+import Providers from "@/components/providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,10 +17,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es">
-      <body className={inter.className}>
-        <FiltersProvider>{children}</FiltersProvider>
-      </body>
-    </html>
+    <Providers>
+      <html lang="es">
+        <body className={inter.className}>
+          <FiltersProvider>{children}</FiltersProvider>
+        </body>
+      </html>
+    </Providers>
   );
 }

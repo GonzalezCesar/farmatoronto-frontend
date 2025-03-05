@@ -24,19 +24,23 @@ export default function PurchaseForm() {
 
       {/* Main Content */}
       <main className="p-6 max-w-6xl mx-auto">
-        <Button
-          variant="ghost"
-          className="mb-8 bg-[#68e99d] hover:bg-[#68e99d]/90 h-12 w-12"
-        >
-          <Link href="/PanelAdmin">
-            <ArrowLeft className="h-6 w-6" />
-          </Link>
-        </Button>
 
-        <div className="mb-4 flex items-center justify-center">
-          <h1 className="text-6xl font-bold text-header mb-6 font-bebas-neue text-white text-shadow-outline tracking-wide">
-            COMPRA DE INSUMOS
-          </h1>
+        <div className="flex items-center justify-center mb-4">
+          <div className="absolute left-0 ml-4">
+            <Link href="/PanelAdmin">
+              <Button
+                variant="ghost"
+                className="mb-8 bg-[#68e99d] hover:bg-[#68e99d]/90 h-12 w-12"
+              >
+                <ArrowLeft className="h-6 w-6" />
+              </Button>
+            </Link>
+          </div>
+          <div className="mb-4 flex items-center justify-center">
+            <h1 className="text-6xl font-bold text-header mb-6 font-bebas-neue text-white text-shadow-outline tracking-wide">
+              COMPRA DE INSUMOS
+            </h1>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-[1fr_auto] gap-8">
@@ -89,7 +93,7 @@ export default function PurchaseForm() {
             <div className="flex items-center gap-4">
               <Input
                 placeholder="Ingrese cantidad"
-                className="border-4 border-solid "
+                className="border-4 border-solid border-emerald-600 hover:border-t-emerald-500 bg-white w-full h-auto"
               />
             </div>
 

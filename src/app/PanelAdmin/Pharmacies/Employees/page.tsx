@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import AdminThings from "@/components/ui/adminThings";
+import AdminThings from "@/components/adminThings";
 
 export default function page() {
   return (

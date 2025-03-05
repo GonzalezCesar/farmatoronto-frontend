@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Pill, User } from "lucide-react";
 import {
@@ -8,12 +10,35 @@ import {
   DropdownMenuSeparator,
 } from "./ui/dropdown-menu";
 import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
+import { useQuery } from "@tanstack/react-query";
+import { jwtDecode } from "jwt-decode";
+import { api } from "@/lib/api/axios";
+import { z } from "zod"
+import { userSchema } from "@/types/users";
 
-interface HeaderProps {
-  userEmail: string;
-}
 
-export default function Header({ userEmail }: HeaderProps) {
+export default function Header() {
+
+  const { data } = useQuery({
+    queryKey: ["user"],
+    queryFn: async () => {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        throw new Error("que hay aquí");
+      }
+      const decoded = jwtDecode(token)
+
+      const tokenSchema = z.object({
+        id: z.number()
+      });
+      const parsed = tokenSchema.parse(decoded);
+
+      const data = await api.get(`auth/users/${parsed.id}`)
+
+      return userSchema.parse(data.data)
+    },
+  });
+
   return (
     <header className="w-full flex p-4" style={{ backgroundColor: "#005452" }}>
       <div className="container mx-auto px-2 py-2">
@@ -27,7 +52,7 @@ export default function Header({ userEmail }: HeaderProps) {
             FARMATORONTO
           </span>
           <div className="flex items-center ml-auto gap-4">
-            <h2 className="text-white font-bold text-xl">Usuario conectado</h2>
+            <h2 className="text-white font-bold text-xl">{data?.email}</h2>
             <DropdownMenu>
               <div className="p-4 rounded-full bg-white">
                 <DropdownMenuTrigger asChild>
@@ -36,7 +61,7 @@ export default function Header({ userEmail }: HeaderProps) {
                 <DropdownMenuContent>
                   <DropdownMenuLabel>Información del Usuario</DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem>{userEmail}</DropdownMenuItem>
+                  <DropdownMenuItem>{}</DropdownMenuItem>
                   <DropdownMenuItem>Otra información</DropdownMenuItem>
                 </DropdownMenuContent>
               </div>

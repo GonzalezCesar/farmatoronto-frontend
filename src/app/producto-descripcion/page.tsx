@@ -1,4 +1,7 @@
 import Navbar from "@/components/NavBar";
+import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
 
 export default function VistaProductos() {
   return (
@@ -11,13 +14,22 @@ export default function VistaProductos() {
       {/* Main Content */}
       <div className="flex-1 bg-[#e0ffff] p-8">
         {/* Catalog Header */}
-        <div className="flex justify-between items-center mb-8">
-          <h2
-            className="text-[#04232f] text-7xl font-bold tracking-wider text-center mx-auto"
-            style={{ WebkitTextStroke: "1px #04232f", WebkitTextFillColor: "transparent" }}
-          >
-            CATALOGO
-          </h2>
+        <div className="flex items-center justify-center mb-4">
+          <div className="absolute left-0 ml-4">
+            <Link href="/PanelAdmin">
+              <Button
+                variant="ghost"
+                className="mb-8 bg-[#68e99d] hover:bg-[#68e99d]/90 h-12 w-12"
+              >
+                <ArrowLeft className="h-6 w-6" />
+              </Button>
+            </Link>
+          </div>
+          <div className="mb-4 flex items-center justify-center">
+            <h1 className="text-6xl font-bold text-header mb-6 font-bebas-neue text-white text-shadow-outline tracking-wide">
+              SUCURSALES
+            </h1>
+          </div>
         </div>
 
         {/* Medication Card */}
@@ -26,11 +38,23 @@ export default function VistaProductos() {
           <div className="flex flex-col items-center gap-2">
             <div className="border-2 border-[#04232f] rounded-full w-64 h-64 flex items-center justify-center relative">
               <div className="w-48 h-48 relative">
-                <svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  viewBox="0 0 200 100"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path d="M50 50 L150 50" stroke="#04232f" strokeWidth="2" />
                   <path d="M50 25 L150 25" stroke="#04232f" strokeWidth="2" />
                   <path d="M50 75 L150 75" stroke="#04232f" strokeWidth="2" />
-                  <ellipse cx="100" cy="50" rx="80" ry="40" stroke="#04232f" strokeWidth="2" fill="transparent" />
+                  <ellipse
+                    cx="100"
+                    cy="50"
+                    rx="80"
+                    ry="40"
+                    stroke="#04232f"
+                    strokeWidth="2"
+                    fill="transparent"
+                  />
                 </svg>
               </div>
             </div>
@@ -39,7 +63,9 @@ export default function VistaProductos() {
 
           {/* Medication Details */}
           <div className="flex flex-col gap-4 py-4">
-            <h3 className="text-[#04232f] text-4xl font-bold">Nombre del medicamento</h3>
+            <h3 className="text-[#04232f] text-4xl font-bold">
+              Nombre del medicamento
+            </h3>
             <p className="text-[#04232f] text-3xl font-bold">$$$</p>
             <p className="text-[#04232f] text-xl">
               Descripción de propiedades
@@ -57,6 +83,5 @@ export default function VistaProductos() {
         </div>
       </div>
     </main>
-  )
+  );
 }
-

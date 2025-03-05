@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import AdminThings from "@/components/ui/adminThings";
+import AdminThings from "@/components/adminThings";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
@@ -14,18 +14,22 @@ export default function page() {
     >
       <Header />
       <main className="flex-grow container mx-auto px-4 py-8">
-      <Button
-          variant="ghost"
-          className="mb-8 bg-[#68e99d] hover:bg-[#68e99d]/90 h-12 w-12"
-        >
+        <div className="flex items-center justify-center mb-4">
+          <div className="absolute left-0 ml-4">
           <Link href="/PanelAdmin">
-            <ArrowLeft className="h-6 w-6" />
-          </Link>
-        </Button>
-        <div className="mb-4 flex items-center justify-center">
-          <h1 className="text-6xl font-bold text-header mb-6 font-bebas-neue text-white text-shadow-outline tracking-wide">
-            MEDICAMENTOS
-          </h1>
+              <Button
+                variant="ghost"
+                className="mb-8 bg-[#68e99d] hover:bg-[#68e99d]/90 h-12 w-12"
+              >
+                <ArrowLeft className="h-6 w-6" />
+              </Button>
+            </Link>
+          </div>
+          <div className="mb-4 flex items-center justify-center">
+            <h1 className="text-6xl font-bold text-header mb-6 font-bebas-neue text-white text-shadow-outline tracking-wide">
+              MEDICAMENTOS
+            </h1>
+          </div>
         </div>
 
         <div className="bg-white shadow-md rounded-lg p-4 block m-5">

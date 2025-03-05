@@ -17,6 +17,7 @@ export default function Home() {
       setProducts(result);
     })();
   });
+
   return (
     <div className="min-h-screen bg-[#e0ffff]">
       <header className="bg-[rgb(0,84,82)] p-4">

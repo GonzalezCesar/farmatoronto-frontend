@@ -4,8 +4,8 @@ import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import ImageLogo from "@/Image/login-imagen.png"
 import { useRouter } from 'next/navigation';
-import { login } from '@/services/actions';
 import { useState } from "react";
+import { login } from "@/services/auth";
 
 
 export default function Page() {
@@ -45,13 +45,9 @@ export default function Page() {
     setIsLoading(true)
 
     try {
-      const result = await login({ username, password })
-
-      if (result.success) {
-        router.push("/")
-      } else {
-        setErrors({ general: result.error || "Credenciales Invalidas" })
-      }
+      await login( username, password )
+      router.push("/PanelAdmin")
+      
     } catch (error) {
       console.error("Error durante el inicio de sesión: ", error) 
       setErrors({ general: "Ocurrio un error al iniciar sesion" })

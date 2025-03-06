@@ -3,6 +3,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import Link from "next/link";
 
 export default function Page() {
   return (
@@ -51,9 +52,11 @@ export default function Page() {
           </form>
         </div>
         <div className="flex justify-center mt-6">
-          <Button className="px-6 py-2 text-lg text-white bg-[#36C34B] hover:bg-[#2ca33e] transition-colors duration-[10s]">
-            Registrar
-          </Button>
+        <Link href="/PanelAdmin/Pharmacies">
+            <Button className="px-6 py-2 text-lg text-white bg-[#36C34B] hover:bg-[#2ca33e] transition-colors duration-[10s]">
+              Registrar
+            </Button>
+          </Link>
         </div>
       </main>
       <Footer />

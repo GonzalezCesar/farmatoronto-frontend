@@ -1,8 +1,10 @@
-export interface Product {
-  id: number;
-  title: string;
-  price: number;
-  category: string;
-  description: string;
-  image: string;
-}
+import { z } from "zod";
+
+export const productSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  maincomponent: z.string(),
+  price: z.number(),
+});
+
+export type Product = z.infer<typeof productSchema>

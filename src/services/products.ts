@@ -1,12 +1,12 @@
-import { Product } from "@/types/product";
+import { api } from "@/lib/api/axios";
+import { Product, productSchema } from "@/types/product";
 
 export const getProducts = async (): Promise<Product[]> => {
-  // TO DO: Validar los datos del backend
 
-  const reponse = await fetch("http://localhost:8081/v1/health");
-  const data = await reponse.json();
+  const reponse = await api.get("/medicines");
+
+  return productSchema.array().parse(reponse.data)
   
-  return data;
 };
 
 

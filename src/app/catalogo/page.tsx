@@ -2,21 +2,21 @@
 
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { useEffect, useState } from "react";
 import { ProductList } from "@/components/ProductList";
 import { getProducts } from "@/services/products";
-import type { Product } from "@/types/product";
+import { useQuery } from "@tanstack/react-query";
 
 
 export default function Home() {
-  const [products, setProducts] = useState<Product[]>([]);
+  const { data: products, isLoading } =
+
+  useQuery ({
+    queryKey: ["products"],
+    queryFn: () => getProducts(),
+    
+  })
   
-    useEffect(() => {
-      (async () => {
-        const result = await getProducts();
-        setProducts(result);
-      })();
-    });
+  
   
   return (
     <div
@@ -27,7 +27,8 @@ export default function Home() {
       <main>
         <section className="mb-16">
           <h2 className="text-2xl font-bold mb-6 text-[#04232f]"></h2>
-          <ProductList products={products} />
+          {isLoading && <div className="text-center text-emerald-600 text-xl">Loading...</div>}
+          <ProductList products={products || []} />
         </section>
       </main>
       <Footer />

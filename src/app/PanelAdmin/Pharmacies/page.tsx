@@ -14,7 +14,6 @@ export default function page() {
     >
       <Header />
       <main className="flex-grow container mx-auto px-4 py-8">
-
         <div className="flex items-center justify-center mb-4">
           <div className="absolute left-0 ml-4">
             <Link href="/PanelAdmin">
@@ -75,12 +74,14 @@ export default function page() {
           </div>
         </div>
         <div className="flex flex-star">
-          <Button
-            type="submit"
-            className="w-[3/10] font-bebas-neue font-bold bg-[#4875D8] hover:bg-[#35569B] transition-colors duration-[10s] text-white text-base rounded-lg m-3 text-center mx-auto"
-          >
-            Personal
-          </Button>
+          <Link href="/PanelAdmin/Pharmacies/Employees" className="text-center mx-auto">
+            <Button
+              type="submit"
+              className="w-[3/10] font-bebas-neue font-bold bg-[#4875D8] hover:bg-[#35569B] transition-colors duration-[10s] text-white text-base rounded-lg m-3 text-center mx-auto"
+            >
+              Personal
+            </Button>
+          </Link>
         </div>
       </main>
       <Footer />

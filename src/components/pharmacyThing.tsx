@@ -1,7 +1,7 @@
 import React from 'react'; 
-import Image from 'next/image';
-import buscar from "@/Image/buscar.png"
 import { Search } from 'lucide-react';
+import { Button } from './ui/button';
+import Link from 'next/link';
 
 export default function AdminThings() {
   return (
@@ -12,13 +12,17 @@ export default function AdminThings() {
           placeholder="Buscar"
           className="bg-transparent outline-none text-gray-600 placeholder-gray-400 w-full"
         />
-        <div className="w-8 h-8 bg-[#007863] rounded-full flex items-center justify-center ml-2">
-          <Search className='text-white' />
+        <div className="w-8 h-8 bg-[#007863] rounded-full flex items-center justify-center ml-2 text-white">
+          <Search />
         </div>
       </div>
-      <button className="bg-[#007863] text-white px-4 py-2 rounded-md flex items-center hover:bg-[#026553] transition-colors duration-[10s]">
-        + Nuevo Registro
-      </button>
+      <div className="flex flex-1 items-center">
+            <Link href="/PanelAdmin/Pharmacies/Form">
+              <Button className="bg-[#007863] text-white px-4 py-2 rounded-md flex items-center hover:bg-[#026553] transition-colors duration-[10s]">
+                + Nuevo Registro
+              </Button>
+            </Link>
+          </div>
     </div>
   );
 }

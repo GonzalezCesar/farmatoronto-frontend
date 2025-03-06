@@ -9,6 +9,7 @@ import {
 } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
 import { ChevronDown } from "lucide-react";
+import { Search } from 'lucide-react';
 
 export default function AdminThings() {
   return (
@@ -20,7 +21,7 @@ export default function AdminThings() {
           className="bg-transparent outline-none text-gray-600 placeholder-gray-400 w-full"
         />
         <div className="w-8 h-8 bg-[#007863] rounded-full flex items-center justify-center ml-2">
-          <Image src={buscar} alt="Logo" width={16} height={16} />
+          <Search className='text-white' />
         </div>
       </div>
 

@@ -1,10 +1,29 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { WithContext as ReactTags, Tag } from 'react-tag-input';
+
+const KeyCodes = {
+  comma: 188,
+  enter: 13,
+};
+
+const delimiters = [KeyCodes.comma, KeyCodes.enter];
 
 export default function Page() {
+  const [tags, setTags] = useState<Tag[]>([]);
+
+  const handleDelete = (i: number) => {
+    setTags(tags.filter((tag, index) => index !== i));
+  };
+
+  const handleAddition = (tag: Tag) => {
+    setTags([...tags, tag]);
+  };
+
   return (
     <div
       className="flex flex-col min-h-screen"
@@ -75,30 +94,27 @@ export default function Page() {
             </div>
             <div className="m-6 flex gap-2">
               <label className="text-[#024442] p-1 my-2"> Cargo actual: </label>
-              <select
-                className="bg-[#F6FFFE] text-base border border-[#13CAC6] text-black p-2 my-1 rounded-md w-[4/10]"
-                defaultValue=""
-              >
-                <option value="" disabled className="text-gray-900">
-                  Cargos
-                </option>
-                <option value="1" className="text-gray-900">
-                  Cargo 1
-                </option>
-                <option value="2" className="text-gray-900">
-                  Cargo 2
-                </option>
-              </select>
-            </div>
-            <div className="m-6 flex gap-2">
-              <label className="text-[#024442] p-1 my-2">
-                {" "}
-                Cargos pasados:{" "}
-              </label>
               <Input
-                type="checkbox"
-                placeholder="Cargos asumidos en la farmacia"
+                type="text"
+                placeholder="Cargo a ejercer en la farmacia"
                 className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
+              />
+            </div>
+            <div className="m-6 flex gap-5">
+              <label className="text-[#024442] p-1 my-2"> Cargos pasados: </label>
+              <ReactTags
+                tags={tags}
+                delimiters={delimiters}
+                handleDelete={handleDelete}
+                handleAddition={handleAddition}
+                inputFieldPosition="bottom"
+                autocomplete
+                placeholder="Ingrese cargos pasados"
+                classNames={{
+                  tagInput: "bg-[#F6FFFE] border border-[#13CAC6] p-2 my-1 text-black rounded-md",
+                  tag: "bg-[#E0FFFF] text-[#024442] border-[#13CAC6] rounded p-1 m-1 rounded-md",
+                  remove: "text-[#13CAC6] hover:text-[#007863]"
+                }}
               />
             </div>
             <div className="m-6 flex gap-5">

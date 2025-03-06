@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import PharmacyThing from "@/components/pharmacyThing";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Pencil, Trash2 } from "lucide-react";
 import Link from "next/link";
 
 export default function page() {
@@ -36,7 +36,7 @@ export default function page() {
         <div className="bg-white shadow-md rounded-lg p-4 block m-5">
           <PharmacyThing />
           {/* Atributos de la BD*/}
-          <div className="grid grid-cols-4 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
+          <div className="grid grid-cols-5 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
             <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
               Codigo
             </h2>
@@ -51,7 +51,7 @@ export default function page() {
             </h2>
           </div>
           {/* Campos a llenar */}
-          <div className="grid grid-cols-4 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
+          <div className="grid grid-cols-5 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
             <h2 className="text-sm text-black font-light text-header my-1.5 justify-center text-center">
               01
             </h2>
@@ -64,20 +64,14 @@ export default function page() {
             <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
               Ciudad Guayana
             </h2>
-          </div>
-          <div className="grid grid-cols-4 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
-            <h2 className="text-sm text-black font-light text-header my-1.5 justify-center text-center">
-              02
-            </h2>
-            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              Av. Playalinda
-            </h2>
-            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              toronto2@gmail.com
-            </h2>
-            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              Lechería
-            </h2>
+            <div className="text-black flex justify-center gap-1">
+              <Button className="bg-[#26BCB5] hover:bg-[#25CFC7] h-8 w-8">
+                <Pencil />
+              </Button>
+              <Button className="bg-[#B12412] hover:bg-[#DE321B] h-8 w-8">
+                <Trash2 />
+              </Button>
+            </div>
           </div>
         </div>
         <div className="flex flex-star">

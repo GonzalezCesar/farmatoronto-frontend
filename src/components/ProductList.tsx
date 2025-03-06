@@ -1,7 +1,6 @@
 "use client";
 
 import type React from "react";
-import { useFilters } from "../hooks/useFilters";
 import { Product } from "@/types/product";
 
 

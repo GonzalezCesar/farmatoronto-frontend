@@ -1,10 +1,12 @@
 "use client"
-import React, { useState, KeyboardEvent, ChangeEvent } from "react";
+import React, { useState } from "react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { WithContext as ReactTags, Tag } from 'react-tag-input';
+import '../../../styles.css';
+
 
 const KeyCodes = {
   comma: 188,
@@ -116,9 +118,9 @@ export default function Page() {
                 autocomplete
                 placeholder="Ingrese monodroga"
                 classNames={{
-                  tagInput: "bg-[#F6FFFE] border border-[#13CAC6] p-2 my-1 text-black rounded-md",
-                  tag: "bg-[#E0FFFF] text-[#024442] border-[#13CAC6] rounded p-1 m-1 rounded-md",
-                  remove: "text-[#13CAC6] hover:text-[#007863]"
+                  tagInput: "bg-[#F6FFFE] border border-[#13CAC6] p-2 my-1 text-black rounded-md ",
+                  tag: "bg-[#E0FFFF] text-[#024442] border-[#13CAC6] rounded p-1 m-1 rounded-md items-center",
+                  remove: "custom-remove-button text-[#024442] hover:text-[#013330] ml-2 "
                 }}
               />
             </div>

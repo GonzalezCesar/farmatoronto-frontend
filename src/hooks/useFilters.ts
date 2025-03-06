@@ -16,7 +16,7 @@ export function useFilters() {
   const filterProducts = (products: Product[]) => {
     return products.filter((product) => {
       return (
-        product.title.toLowerCase().includes(filters.name.toLowerCase()) && (filters.category === "all" || product.category === filters.category)
+        product.name.toLowerCase().includes(filters.name.toLowerCase()) && (filters.category === "all")
       )
     });
   };

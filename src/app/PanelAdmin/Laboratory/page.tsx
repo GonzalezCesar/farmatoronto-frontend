@@ -33,7 +33,16 @@ export default function page() {
         </div>
 
         <div className="bg-white shadow-md rounded-lg p-4 block m-5">
-          <AdminThings />
+
+        <div className="flex flex-col md:flex-row items-center justify-center md:justify-between px-5 gap-4">
+            <AdminThings />
+            <Link href="/PanelAdmin/Laboratory/Form">
+              <Button className="bg-[#007863] text-white px-4 py-2 rounded-md flex items-center hover:bg-[#026553] transition-colors duration-[10s]">
+                + Nuevo Registro
+              </Button>
+            </Link>
+          </div>
+          
           <div className="grid grid-cols-6 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
             <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
               Código

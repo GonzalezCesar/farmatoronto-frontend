@@ -1,22 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { ProductList } from "@/components/ProductList";
-import { getProducts } from "@/services/products";
-import type { Product } from "@/types/product";
 import CartGrid from "@/components/cart-grid";
 import Navbar from "@/components/NavBar";
 import Footer from "@/components/footer";
 
 export default function Home() {
-  const [products, setProducts] = useState<Product[]>([]);
-
-  useEffect(() => {
-    (async () => {
-      const result = await getProducts();
-      setProducts(result);
-    })();
-  });
 
   return (
     <div className="min-h-screen bg-[#e0ffff]">
@@ -30,12 +18,6 @@ export default function Home() {
             CATALAGO
           </h1>
         </div>
-
-        {/* Sección original de ProductList */}
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold mb-6 text-[#04232f]"></h2>
-          <ProductList products={products} />
-        </section>
 
         {/* Nueva sección de CartGrid */}
         <section>

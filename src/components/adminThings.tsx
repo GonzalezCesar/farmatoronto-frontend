@@ -1,6 +1,4 @@
 import React from "react";
-import Image from "next/image";
-import buscar from "@/Image/buscar.png";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,7 +11,7 @@ import { Search } from 'lucide-react';
 
 export default function AdminThings() {
   return (
-    <div className="flex justify-between items-center mb-4 px-5">
+    <div className="flex items-center w-full">
       <div className="flex items-center bg-[#E0FFFF] rounded-full px-4 py-2">
         <input
           type="text"
@@ -25,25 +23,43 @@ export default function AdminThings() {
         </div>
       </div>
 
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button
-            variant="outline"
-            className="gap-2 px-4 py-2 rounded-md bg-[#007863] hover:bg-[#026553] text-white transition-colors duration-[10s]"
-          >
-            Sucursales
-            <ChevronDown className="h-4 w-4" />
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end">
-          <DropdownMenuItem>Sucursal 1</DropdownMenuItem>
-          <DropdownMenuItem>Sucursal 2</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
+      <div className="flex-1"></div>
 
-      <Button className="bg-[#007863] text-white px-4 py-2 rounded-md flex items-center hover:bg-[#026553] transition-colors duration-[10s]">
-        + Nuevo Registro
-      </Button>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button
+              variant="outline"
+              className="gap-2 px-4 py-2 rounded-md bg-[#007863] hover:bg-[#026553] text-white transition-colors duration-[10s] flex justify-center items-center"
+            >
+              Sucursales
+              <ChevronDown className="h-4 w-4" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuItem>Sucursal 1</DropdownMenuItem>
+            <DropdownMenuItem>Sucursal 2</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      
+        <div className="flex-1"></div>
+
+      <div className="flex-1 flex justify-end">
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button
+              variant="outline"
+              className="gap-2 px-4 py-2 rounded-md bg-[#007863] hover:bg-[#026553] text-white transition-colors duration-[10s] flex justify-center items-center"
+            >
+              Monodrogras
+              <ChevronDown className="h-4 w-4" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuItem>Sucursal 1</DropdownMenuItem>
+            <DropdownMenuItem>Sucursal 2</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
     </div>
   );
 }

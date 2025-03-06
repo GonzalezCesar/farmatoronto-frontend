@@ -10,34 +10,13 @@ import {
   DropdownMenuSeparator,
 } from "./ui/dropdown-menu";
 import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
-import { useQuery } from "@tanstack/react-query";
-import { jwtDecode } from "jwt-decode";
-import { api } from "@/lib/api/axios";
-import { z } from "zod"
-import { userSchema } from "@/types/users";
+
+import useUser from "@/hooks/useUser";
 
 
 export default function Header() {
 
-  const { data } = useQuery({
-    queryKey: ["user"],
-    queryFn: async () => {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        throw new Error("que hay aquí");
-      }
-      const decoded = jwtDecode(token)
-
-      const tokenSchema = z.object({
-        id: z.number()
-      });
-      const parsed = tokenSchema.parse(decoded);
-
-      const data = await api.get(`auth/users/${parsed.id}`)
-
-      return userSchema.parse(data.data)
-    },
-  });
+  const { data } = useUser()
 
   return (
     <header className="w-full flex p-4" style={{ backgroundColor: "#005452" }}>

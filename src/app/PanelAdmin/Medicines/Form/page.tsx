@@ -37,7 +37,7 @@ export default function Page() {
       <main className="flex-grow container mx-auto px-4 py-8">
       <div className="flex items-center justify-center mb-4">
           <div className="absolute left-0 ml-4">
-            <Link href="/PanelAdmin">
+            <Link href="/PanelAdmin/Medicines">
               <Button
                 variant="ghost"
                 className="mb-8 bg-[#68e99d] hover:bg-[#68e99d]/90 h-12 w-12"

@@ -1,10 +1,29 @@
-import React from "react";
+"use client"
+import React, { useState, KeyboardEvent, ChangeEvent } from "react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { WithContext as ReactTags, Tag } from 'react-tag-input';
+
+const KeyCodes = {
+  comma: 188,
+  enter: 13,
+};
+
+const delimiters = [KeyCodes.comma, KeyCodes.enter];
 
 export default function Page() {
+  const [tags, setTags] = useState<Tag[]>([]);
+
+  const handleDelete = (i: number) => {
+    setTags(tags.filter((tag, index) => index !== i));
+  };
+
+  const handleAddition = (tag: Tag) => {
+    setTags([...tags, tag]);
+  };
+
   return (
     <div
       className="flex flex-col min-h-screen"
@@ -83,6 +102,23 @@ export default function Page() {
                 type="text"
                 placeholder="Acción terapéutica del medicamento"
                 className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
+              />
+            </div>
+            <div className="m-6 flex gap-5">
+              <label className="text-[#024442] p-1 my-2"> Monodrogas: </label>
+              <ReactTags
+                tags={tags}
+                delimiters={delimiters}
+                handleDelete={handleDelete}
+                handleAddition={handleAddition}
+                inputFieldPosition="bottom"
+                autocomplete
+                placeholder="Ingrese monodroga"
+                classNames={{
+                  tagInput: "bg-[#F6FFFE] border border-[#13CAC6] p-2 my-1 text-black rounded-md",
+                  tag: "bg-[#E0FFFF] text-[#024442] border-[#13CAC6] rounded p-1 m-1 rounded-md",
+                  remove: "text-[#13CAC6] hover:text-[#007863]"
+                }}
               />
             </div>
             <div className="m-6 flex gap-5">

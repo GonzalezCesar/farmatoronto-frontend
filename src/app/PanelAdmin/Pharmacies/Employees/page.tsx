@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import AdminThings from "@/components/adminThings";
-import { Pencil, Trash2 } from "lucide-react";
+import { ArrowLeft, Pencil, Trash2 } from "lucide-react";
 import Link from "next/link";
 
 export default function page() {
@@ -14,17 +14,29 @@ export default function page() {
     >
       <Header />
       <main className="flex-grow container mx-auto px-4 py-8">
-        <div className="mb-4 flex items-center justify-center">
-          <h1 className="text-6xl font-bold text-header mb-6 font-bebas-neue text-white text-shadow-outline tracking-wide">
-            EMPLEADOS
-          </h1>
+      <div className="flex items-center justify-center mb-4">
+          <div className="absolute left-0 ml-4">
+            <Link href="/PanelAdmin/Pharmacies">
+              <Button
+                variant="ghost"
+                className="mb-8 bg-[#68e99d] hover:bg-[#68e99d]/90 h-12 w-12"
+              >
+                <ArrowLeft className="h-6 w-6" />
+              </Button>
+            </Link>
+          </div>
+          <div className="mb-4 flex items-center justify-center">
+            <h1 className="text-6xl font-bold text-header mb-6 font-bebas-neue text-white text-shadow-outline tracking-wide">
+              EMPLEADOS
+            </h1>
+          </div>
         </div>
 
         <div className="bg-white shadow-md rounded-lg p-4 block m-5">
 
         <div className="flex flex-col md:flex-row items-center justify-center md:justify-between px-5 gap-4">
             <AdminThings />
-            <Link href="/PanelAdmin/Pharmacies/Employes/Form">
+            <Link href="/PanelAdmin/Pharmacies/Employees/Form">
               <Button className="bg-[#007863] text-white px-4 py-2 rounded-md flex items-center hover:bg-[#026553] transition-colors duration-[10s]">
                 + Nuevo Registro
               </Button>

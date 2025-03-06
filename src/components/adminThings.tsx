@@ -50,13 +50,13 @@ export default function AdminThings() {
               variant="outline"
               className="gap-2 px-4 py-2 rounded-md bg-[#007863] hover:bg-[#026553] text-white transition-colors duration-[10s] flex justify-center items-center"
             >
-              Monodrogras
+              Monodrogas
               <ChevronDown className="h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuItem>Sucursal 1</DropdownMenuItem>
-            <DropdownMenuItem>Sucursal 2</DropdownMenuItem>
+            <DropdownMenuItem>Monodroga 1</DropdownMenuItem>
+            <DropdownMenuItem>Monodroga 2</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

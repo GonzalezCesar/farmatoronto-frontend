@@ -46,7 +46,7 @@ export default function page() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-8 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
+          <div className="grid grid-cols-10 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
             <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
               Codigo
             </h2>

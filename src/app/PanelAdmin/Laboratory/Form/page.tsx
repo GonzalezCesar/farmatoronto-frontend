@@ -5,6 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function Page() {
   return (
@@ -68,20 +75,16 @@ export default function Page() {
             </div>
             <div className="m-6 flex gap-5">
               <label className="text-[#024442] p-1 my-2"> Sucursal: </label>
-              <select
-                className="bg-[#F6FFFE] text-base border border-[#13CAC6] text-black p-2 my-1 rounded-md w-[4/10]"
-                defaultValue=""
-              >
-                <option value="" disabled className="text-gray-900">
-                  Ubicación del stock de la sucursal
-                </option>
-                <option value="1" className="text-gray-900">
-                  Farmacia 1
-                </option>
-                <option value="2" className="text-gray-900">
-                  Farmacia 2
-                </option>
-              </select>
+              <Select>
+                  <SelectTrigger className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1">
+                    <SelectValue placeholder="Sucursal de la farmacia" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="suc1">Sucursal 1</SelectItem>
+                    <SelectItem value="suc2">Sucursal 2</SelectItem>
+                    <SelectItem value="suc3">Sucursal 3</SelectItem>
+                  </SelectContent>
+                </Select>
             </div>
           </form>
         </div>

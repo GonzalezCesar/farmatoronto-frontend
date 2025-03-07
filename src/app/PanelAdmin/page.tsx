@@ -29,6 +29,15 @@ export default function Home() {
           </div>
 
           <div className="bg-white block m-5 border text-card-foreground group relative bg-gradient-to-br from-[#c0fff5] to-[#538c83]/10 rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+            <Link href="PanelAdmin/orders" className="">
+              <h2 className="text-2xl text-[#0C4835] font-semibold text-header mb-1 ">
+                Órdenes de compra
+              </h2>
+              <p>Listado de los pedidos emitidos por la farmacia.</p>
+            </Link>
+          </div>
+
+          <div className="bg-white block m-5 border text-card-foreground group relative bg-gradient-to-br from-[#c0fff5] to-[#538c83]/10 rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
             <Link href="PanelAdmin/Medicines">
               <h2 className="text-2xl text-[#0C4835] font-semibold text-header mb-1">
                 Medicamentos
@@ -60,11 +69,3 @@ export default function Home() {
     </div>
   );
 }
-
-// export default function page() {
-//   return (
-//     <div>page
-//         <h1>Hola gente</h1>
-//     </div>
-//   )
-// }

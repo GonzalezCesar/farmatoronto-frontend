@@ -1,30 +1,25 @@
-"use client";
-
-import { useState } from "react";
-import { ArrowLeft } from "lucide-react";
+import React from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import Link from "next/link";
-import Footer from "@/components/footer";
 import Header from "@/components/header";
+import Footer from "@/components/footer";
+import { ArrowLeft, ArrowRight, ChevronDown } from "lucide-react";
+import Link from "next/link";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
 
-export default function PurchaseForm() {
-  const [quantity, setQuantity] = useState(1);
-
+export default function page() {
   return (
-    <div className="min-h-screen bg-[#e0ffff]">
+    <div
+      className="flex flex-col min-h-screen"
+      style={{ backgroundColor: "#E0FFFF" }}
+    >
       <Header />
-
-      {/* Main Content */}
-      <main className="p-6 max-w-6xl mx-auto">
-
+      <main className="flex-grow container mx-auto px-4 py-8">
         <div className="flex items-center justify-center mb-4">
           <div className="absolute left-0 ml-4">
             <Link href="/PanelAdmin">
@@ -38,81 +33,132 @@ export default function PurchaseForm() {
           </div>
           <div className="mb-4 flex items-center justify-center">
             <h1 className="text-6xl font-bold text-header mb-6 font-bebas-neue text-white text-shadow-outline tracking-wide">
-              COMPRA DE INSUMOS
+              SELECCIÓN DE MEDICINAS
             </h1>
           </div>
+          <div className="absolute right-0 mr-4">
+            <Link href="/PanelAdmin/shopping-panel/pay-panel">
+              <Button
+                variant="ghost"
+                className="mb-8 bg-[#68e99d] hover:bg-[#68e99d]/90 h-12 w-12"
+              >
+                <ArrowRight className="h-6 w-6"/>
+              </Button>
+            </Link>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-[1fr_auto] gap-8">
-          {/* Form Card */}
-          <div className="bg-white rounded-3xl p-8 shadow-lg">
-            <h3 className="text-[#005452] text-3xl font-bold mb-8">
-              ORDEN DE COMPRA
-            </h3>
-
-            <div className="space-y-6">
-              <div className="grid gap-2">
-                <label className="text-xl">Nombre</label>
-                <Input
-                  placeholder="Nombre del medicamento"
-                  className="bg-[#e0ffff] border-none h-12"
-                />
-              </div>
-
-              <div className="grid gap-2">
-                <label className="text-xl">Forma de pago</label>
-                <Input
-                  placeholder="Pago"
-                  className="bg-[#e0ffff] border-none h-12"
-                />
-              </div>
-
-              <div className="grid gap-2">
-                <label className="text-xl">
-                  Laboratorio que lo comercializa
-                </label>
-                <Select>
-                  <SelectTrigger className="bg-[#e0ffff] border-none h-12">
-                    <SelectValue placeholder="Nombre del laboratorio" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="lab1">Laboratorio 1</SelectItem>
-                    <SelectItem value="lab2">Laboratorio 2</SelectItem>
-                    <SelectItem value="lab3">Laboratorio 3</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-            </div>
+        <div className="bg-white shadow-md rounded-lg p-4 block m-5">
+          <div className="flex justify-center items-center mb-4">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="outline"
+                  className="gap-2 px-4 py-2 rounded-md bg-[#007863] hover:bg-[#026553] text-white transition-colors duration-[10s] flex justify-center items-center"
+                >
+                  Sucursales
+                  <ChevronDown className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="center">
+                <DropdownMenuItem>Sucursal 1</DropdownMenuItem>
+                <DropdownMenuItem>Sucursal 2</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
-
-          {/* Price and Quantity Section */}
-          <div className="flex flex-col items-center gap-6">
-            <div className="text-6xl font-bold text-[#04232f]">$$$</div>
-
-            <div className="flex items-center gap-4">
+          {/* Atributos de la BD*/}
+          <div className="grid grid-cols-5 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
+            <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
+              Código
+            </h2>
+            <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
+              Medicamento
+            </h2>
+            <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
+              Cantidad
+            </h2>
+            <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
+              Precio
+            </h2>
+            <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
+              Selección
+            </h2>
+          </div>
+          {/* Campos a llenar */}
+          <div className="grid grid-cols-5 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
+            <h2 className="text-sm text-black font-light text-header my-1.5 justify-center text-center">
+              01
+            </h2>
+            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
+              Ibuprofeno
+            </h2>
+            <Input
+              type="number"
+              placeholder="Cantidad"
+              className="bg-[#F6FFFE] border-[#13CAC6] text-black text-sm placeholder:text-[#007863] p-2 my-1"
+            />
+            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
+              20$
+            </h2>
+            <div className="text-black flex justify-center gap-1">
               <Input
-                placeholder="Ingrese cantidad"
-                className="border-4 border-solid border-emerald-600 hover:border-t-emerald-500 bg-white w-full h-auto"
+                type="checkbox"
+                className="form-checkbox h-8 w-8 text-[#13CAC6] border-[#13CAC6] rounded-md transition duration-150 ease-in-out"
               />
             </div>
-
-            <div className="flex flex-col items-center gap-2">
-              <Button className="bg-[#36c34b] hover:bg-[#36c34b]/90 text-white rounded-full px-12 py-6 text-xl">
-                Comprar
-              </Button>
-              <span className="text-center text-sm">
-                Crear pdf del
-                <br />
-                pedido y la
-                <br />
-                compra
-              </span>
+          </div>
+          <div className="grid grid-cols-5 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
+            <h2 className="text-sm text-black font-light text-header my-1.5 justify-center text-center">
+              02
+            </h2>
+            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
+              Loratadina
+            </h2>
+            <Input
+              type="number"
+              placeholder="Cantidad"
+              className="bg-[#F6FFFE] border-[#13CAC6] text-black text-sm placeholder:text-[#007863] p-2 my-1"
+            />
+            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
+              12.99$
+            </h2>
+            <div className="text-black flex justify-center gap-1">
+              <Input
+                type="checkbox"
+                className="form-checkbox h-8 w-8 text-[#13CAC6] border-[#13CAC6] rounded-md transition duration-150 ease-in-out"
+              />
             </div>
           </div>
+          {/* Calculos de las sumatorias entre precios y cantidades*/}
+          <div className="grid grid-cols-5 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
+            <span></span>
+            <h2 className="text-base text-black font-semibold text-header my-1.5 justify-center text-center">
+              TOTAL
+            </h2>
+            <h2 className="text-base text-black font-semibold text-header my-1.5 justify-center text-center">
+              Suma de las cantidades
+            </h2>
+            <h2 className="text-base text-black font-semibold text-header my-1.5 justify-center text-center">
+              Suma de los precios
+            </h2>
+            <span></span>
+          </div>
+        </div>
+
+        <div className="flex flex-star">
+          <Link
+            href="/PanelAdmin/shopping-panel/pay-panel"
+            className="text-center mx-auto"
+          >
+            <Button
+              type="submit"
+              className="w-[3/10] font-bebas-neue font-bold bg-[#36C34B] hover:bg-[#2ca33e] transition-colors duration-[10s] text-white text-base rounded-lg m-3 text-center mx-auto"
+            >
+              Siguiente
+            </Button>
+          </Link>
         </div>
       </main>
-
       <Footer />
     </div>
   );

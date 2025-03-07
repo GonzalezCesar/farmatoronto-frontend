@@ -1,33 +1,19 @@
-"use client"
-import React, { useState } from "react";
+import React from "react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { WithContext as ReactTags, Tag } from 'react-tag-input';
-import '../../../styles.css';
-
-
-const KeyCodes = {
-  comma: 188,
-  enter: 13,
-};
-
-const delimiters = [KeyCodes.comma, KeyCodes.enter];
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function Page() {
-  const [tags, setTags] = useState<Tag[]>([]);
-
-  const handleDelete = (i: number) => {
-    setTags(tags.filter((tag, index) => index !== i));
-  };
-
-  const handleAddition = (tag: Tag) => {
-    setTags([...tags, tag]);
-  };
-
   return (
     <div
       className="flex flex-col min-h-screen"
@@ -37,7 +23,7 @@ export default function Page() {
       <main className="flex-grow container mx-auto px-4 py-8">
       <div className="flex items-center justify-center mb-4">
           <div className="absolute left-0 ml-4">
-            <Link href="/PanelAdmin/Medicines">
+            <Link href="/PanelAdmin/Laboratory">
               <Button
                 variant="ghost"
                 className="mb-8 bg-[#68e99d] hover:bg-[#68e99d]/90 h-12 w-12"
@@ -81,20 +67,16 @@ export default function Page() {
             </div>
             <div className="m-6 flex gap-5">
               <label className="text-[#024442] p-1 my-2"> Proveedor: </label>
-              <select
-                className="bg-[#F6FFFE] text-base border border-[#13CAC6] text-black p-2 my-1 rounded-md w-[4/10]"
-                defaultValue=""
-              >
-                <option value="" disabled className="text-gray-900">
-                  Laboratorio proveedor
-                </option>
-                <option value="1" className="text-gray-900">
-                  LAB 1
-                </option>
-                <option value="2" className="text-gray-900">
-                  LAB 2
-                </option>
-              </select>
+                <Select>
+                  <SelectTrigger className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1">
+                    <SelectValue placeholder="Nombre del laboratorio" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="lab1">Laboratorio 1</SelectItem>
+                    <SelectItem value="lab2">Laboratorio 2</SelectItem>
+                    <SelectItem value="lab3">Laboratorio 3</SelectItem>
+                  </SelectContent>
+                </Select>
             </div>
             <div className="m-6 flex gap-5">
               <label className="text-[#024442] p-1 my-2"> Precio: </label>
@@ -113,51 +95,67 @@ export default function Page() {
               />
             </div>
             <div className="m-6 flex gap-5">
-              <label className="text-[#024442] p-1 my-2"> Acción: </label>
-              <Input
-                type="text"
-                placeholder="Acción terapéutica del medicamento"
-                className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
-              />
-            </div>
-            <div className="m-6 flex gap-5">
-              <label className="text-[#024442] p-1 my-2"> Monodrogas: </label>
-              <ReactTags
-                tags={tags}
-                delimiters={delimiters}
-                handleDelete={handleDelete}
-                handleAddition={handleAddition}
-                inputFieldPosition="bottom"
-                autocomplete
-                placeholder="Ingrese monodroga"
-                classNames={{
-                  tagInput: "bg-[#F6FFFE] border border-[#13CAC6] p-2 my-1 text-black rounded-md ",
-                  tag: "bg-[#E0FFFF] text-[#024442] border-[#13CAC6] rounded p-1 m-1 rounded-md items-center",
-                  remove: "custom-remove-button text-[#024442] hover:text-[#013330] ml-2 "
-                }}
-              />
-            </div>
-            <div className="m-6 flex gap-5">
               <label className="text-[#024442] p-1 my-2"> Sucursal: </label>
-              <select
-                className="bg-[#F6FFFE] text-base border border-[#13CAC6] text-black p-2 my-1 rounded-md w-[4/10]"
-                defaultValue=""
-              >
-                <option value="" disabled className="text-gray-900">
-                  Ubicación del stock de la sucursal
-                </option>
-                <option value="1" className="text-gray-900">
-                  Farmacia 1
-                </option>
-                <option value="2" className="text-gray-900">
-                  Farmacia 2
-                </option>
-              </select>
+              <Select>
+                  <SelectTrigger className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1">
+                    <SelectValue placeholder="Sucursal de la farmacia" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="suc1">Sucursal 1</SelectItem>
+                    <SelectItem value="suc2">Sucursal 2</SelectItem>
+                    <SelectItem value="suc3">Sucursal 3</SelectItem>
+                  </SelectContent>
+                </Select>
+            </div>
+            <div className="m-6">
+              <label className="text-[#024442] p-1 my-2"> Monodrogas: </label>
+              <div className="bg-white shadow-md rounded-lg p-4 block m-5">
+                <div className="grid grid-cols-3 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
+                  <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
+                    Código
+                  </h2>
+                  <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
+                    Monodroga
+                  </h2>
+                  <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
+                    Selección
+                  </h2>
+                </div>
+                <div className="grid grid-cols-3 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
+                  <h2 className="text-base text-[#727473] text-header my-1.5 justify-center text-center">
+                    01
+                  </h2>
+                  <h2 className="text-base text-[#727473] text-header my-1.5 justify-center text-center">
+                    Ibuprofeno
+                  </h2>
+                  <div className="text-black flex justify-center gap-1">
+                    <Input
+                      type="checkbox"
+                      className="form-checkbox h-6 w-6 text-[#13CAC6] border-[#13CAC6] rounded-md transition duration-150 ease-in-out"
+                    />
+                  </div>
+                </div>
+                <div className="grid grid-cols-3 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
+                  <h2 className="text-base text-[#727473] text-header my-1.5 justify-center text-center">
+                    02
+                  </h2>
+                  <h2 className="text-base text-[#727473] text-header my-1.5 justify-center text-center">
+                    Omeprazol
+                  </h2>
+                  <div className="text-black flex justify-center gap-1">
+                    <Input
+                      type="checkbox"
+                      className="form-checkbox h-6 w-6 text-[#13CAC6] border-[#13CAC6] rounded-md transition duration-150 ease-in-out"
+                    />
+                  </div>
+                </div>
+                <div/>
+              </div>
             </div>
           </form>
         </div>
         <div className="flex justify-center mt-6">
-          <Link href="/PanelAdmin/Medicines">
+        <Link href="/PanelAdmin/Medicines">
             <Button className="px-6 py-2 text-lg text-white bg-[#36C34B] hover:bg-[#2ca33e] transition-colors duration-[10s]">
               Registrar
             </Button>

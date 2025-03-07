@@ -17,12 +17,12 @@ export default function AdminThings() {
         </div>
       </div>
       <div className="flex flex-1 items-center">
-            <Link href="/PanelAdmin/Pharmacies/Form">
-              <Button className="bg-[#007863] text-white px-4 py-2 rounded-md flex items-center hover:bg-[#026553] transition-colors duration-[10s]">
-                + Nuevo Registro
-              </Button>
-            </Link>
-          </div>
+        <Link href="/PanelAdmin/Pharmacies/Form">
+          <Button className="bg-[#007863] text-white px-4 py-2 rounded-md flex items-center hover:bg-[#026553] transition-colors duration-[10s]">
+            + Nuevo Registro
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 }

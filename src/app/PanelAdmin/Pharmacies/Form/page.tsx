@@ -5,6 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function Page() {
   return (
@@ -50,7 +57,20 @@ export default function Page() {
                 className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
               />
             </div>
-            <div className="m-6 flex gap-2">
+            <div className="m-6 flex gap-5">
+              <label className="text-[#024442] p-1 my-2"> Ciudad: </label>
+              <Select>
+                  <SelectTrigger className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1">
+                    <SelectValue placeholder="Ciudad donde se encuentra la sucursal" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="city1">Ciudad 1</SelectItem>
+                    <SelectItem value="city2">Ciudad 2</SelectItem>
+                    <SelectItem value="city3">Ciudad 3</SelectItem>
+                  </SelectContent>
+                </Select>
+            </div>
+            {/* <div className="m-6 flex gap-2">
               <label className="text-[#024442] p-1 my-2">
                 {" "}
                 Ciudad:{" "}
@@ -60,7 +80,7 @@ export default function Page() {
                 placeholder="Ciudad donde se encuentra la sucursal"
                 className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
               />
-            </div>
+            </div> */}
             
           </form>
         </div>

@@ -1,3 +1,4 @@
+"use client"
 import { api } from "@/lib/api/axios";
 import { userSchema } from "@/types/users";
 import { useQuery } from "@tanstack/react-query";
@@ -21,7 +22,6 @@ export default function useUser() {
       const parsed = tokenSchema.parse(decoded);
 
       const data = await api.get(`auth/users/${parsed.id}`)
-
       return userSchema.parse(data.data)
     },
   });

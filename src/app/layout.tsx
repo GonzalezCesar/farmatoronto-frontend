@@ -13,16 +13,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+}: Readonly<{
+  children: React.ReactNode
+}>) {
   return (
     <Providers>
       <html lang="es">
         <body className={inter.className}>
-          <FiltersProvider>{children}</FiltersProvider>
+          <FiltersProvider>
+            <div className="flex flex-col min-h-screen" style={{ backgroundColor: "#E0FFFF" }}>
+              {children}
+            </div>
+          </FiltersProvider>
         </body>
       </html>
     </Providers>
-  );
+  )
 }

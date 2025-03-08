@@ -12,8 +12,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import Link from "next/link";
-import Footer from "@/components/footer";
-import Header from "@/components/header";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 export default function PurchaseForm() {
   const [quantity, setQuantity] = useState(1);
@@ -24,7 +24,6 @@ export default function PurchaseForm() {
 
       {/* Main Content */}
       <main className="p-6 max-w-6xl mx-auto">
-
         <div className="flex items-center justify-center mb-4">
           <div className="absolute left-0 ml-4">
             <Link href="/PanelAdmin/shopping-panel">
@@ -52,9 +51,7 @@ export default function PurchaseForm() {
 
             <div className="space-y-6">
               <div className="grid gap-2">
-                <label className="text-xl">
-                  Forma de pago
-                </label>
+                <label className="text-xl">Forma de pago</label>
                 <Select>
                   <SelectTrigger className="bg-[#e0ffff] border-none h-12">
                     <SelectValue placeholder="Pago" />
@@ -86,16 +83,11 @@ export default function PurchaseForm() {
 
               <div className="grid gap-2">
                 <label className="text-xl">Fecha de emisión</label>
-                <Input
-                  type="date"
-                  className="bg-[#e0ffff] border-none h-12"
-                />
+                <Input type="date" className="bg-[#e0ffff] border-none h-12" />
               </div>
 
               <div className="grid gap-2">
-                <label className="text-xl">
-                  Sucursal
-                </label>
+                <label className="text-xl">Sucursal</label>
                 <Select>
                   <SelectTrigger className="bg-[#e0ffff] border-none h-12">
                     <SelectValue placeholder="Sucursal de la farmacia" />
@@ -107,7 +99,6 @@ export default function PurchaseForm() {
                   </SelectContent>
                 </Select>
               </div>
-
             </div>
           </div>
 

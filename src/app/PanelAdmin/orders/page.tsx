@@ -1,8 +1,8 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
-import Generalthing from "@/components/general-thing";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Generalthing from "@/components/GeneralThing";
 import { ArrowLeft, Pencil, Trash2 } from "lucide-react";
 import Link from "next/link";
 
@@ -34,7 +34,6 @@ export default function page() {
         </div>
 
         <div className="bg-white shadow-md rounded-lg p-4 m-5">
-          
           <div className="flex flex-col md:flex-row items-center justify-center md:justify-between px-5 gap-4">
             <Generalthing />
           </div>

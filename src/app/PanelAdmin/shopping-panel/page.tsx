@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { ArrowLeft, ArrowRight, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import {
@@ -42,7 +42,7 @@ export default function page() {
                 variant="ghost"
                 className="mb-8 bg-[#68e99d] hover:bg-[#68e99d]/90 h-12 w-12"
               >
-                <ArrowRight className="h-6 w-6"/>
+                <ArrowRight className="h-6 w-6" />
               </Button>
             </Link>
           </div>

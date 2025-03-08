@@ -10,6 +10,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 
 export default function page() {
@@ -48,7 +55,64 @@ export default function page() {
           </div>
         </div>
 
-        <div className="bg-white shadow-md rounded-lg p-4 block m-5">
+        <div className="bg-white shadow-md rounded-lg p-4 block m-5 mx-auto max-w-[60%]">
+          <form>
+            <div className="m-6 flex gap-5">
+              <label className="text-[#024442] p-1 my-2"> Medicamento: </label>
+              <Input
+                type="text"
+                placeholder="Nombre del medicamento a pedir"
+                className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
+              />
+            </div>
+            <div className="m-6 flex gap-5">
+              <label className="text-[#024442] p-1 my-2"> Cantidad: </label>
+              <Input
+                type="number"
+                placeholder="Cantidad del pedido"
+                className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
+              />
+            </div>
+            <div className="m-6 flex gap-5">
+              <label className="text-[#024442] p-1 my-2"> Precio: </label>
+              <Input
+                type="number"
+                placeholder="Precio del medicamento"
+                className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
+              />
+            </div>
+            <div className="m-6 flex gap-5">
+              <label className="text-[#024442] p-1 my-2"> Proveedor: </label>
+                <Select>
+                  <SelectTrigger className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1">
+                    <SelectValue placeholder="Nombre del laboratorio proveedor" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="lab1">Laboratorio 1</SelectItem>
+                    <SelectItem value="lab2">Laboratorio 2</SelectItem>
+                    <SelectItem value="lab3">Laboratorio 3</SelectItem>
+                  </SelectContent>
+                </Select>
+            </div>
+            
+          </form>
+          <div className="flex flex-star">
+            <Button
+              type="submit"
+              className="w-[3/10] font-bebas-neue font-bold bg-[#36C34B] hover:bg-[#2ca33e] transition-colors duration-[10s] text-white text-base rounded-lg m-3 text-center mx-auto"
+            >
+              Añadir
+            </Button>
+          </div>
+        </div>
+
+        <div className="mb-2 mt-10 flex items-center justify-center">
+            <h2 className="text-6xl font-bold text-header mb-6 font-bebas-neue text-white text-shadow-outline tracking-wide">
+              LISTADO
+            </h2>
+          </div>
+
+        <div className="bg-white shadow-md rounded-lg p-4 block m-5 mx-auto max-w-[60%]">
           <div className="flex justify-center items-center mb-4">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -56,21 +120,18 @@ export default function page() {
                   variant="outline"
                   className="gap-2 px-4 py-2 rounded-md bg-[#007863] hover:bg-[#026553] text-white transition-colors duration-[10s] flex justify-center items-center"
                 >
-                  Sucursales
+                  Laboratorios
                   <ChevronDown className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="center">
-                <DropdownMenuItem>Sucursal 1</DropdownMenuItem>
-                <DropdownMenuItem>Sucursal 2</DropdownMenuItem>
+                <DropdownMenuItem>Laboratorio 1</DropdownMenuItem>
+                <DropdownMenuItem>Laboratorio 2</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
           {/* Atributos de la BD*/}
-          <div className="grid grid-cols-5 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
-            <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
-              Código
-            </h2>
+          <div className="grid grid-cols-3 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
             <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
               Medicamento
             </h2>
@@ -80,58 +141,32 @@ export default function page() {
             <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
               Precio
             </h2>
-            <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
-              Selección
-            </h2>
           </div>
           {/* Campos a llenar */}
-          <div className="grid grid-cols-5 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
-            <h2 className="text-sm text-black font-light text-header my-1.5 justify-center text-center">
-              01
-            </h2>
+          <div className="grid grid-cols-3 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
             <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
               Ibuprofeno
             </h2>
-            <Input
-              type="number"
-              placeholder="Cantidad"
-              className="bg-[#F6FFFE] border-[#13CAC6] text-black text-sm placeholder:text-[#007863] p-2 my-1"
-            />
             <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              20$
+              15
             </h2>
-            <div className="text-black flex justify-center gap-1">
-              <Input
-                type="checkbox"
-                className="form-checkbox h-8 w-8 text-[#13CAC6] border-[#13CAC6] rounded-md transition duration-150 ease-in-out"
-              />
-            </div>
+            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
+              20
+            </h2>
           </div>
-          <div className="grid grid-cols-5 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
-            <h2 className="text-sm text-black font-light text-header my-1.5 justify-center text-center">
-              02
+          <div className="grid grid-cols-3 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
+            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
+              Ibuprofeno
             </h2>
             <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              Loratadina
+              15
             </h2>
-            <Input
-              type="number"
-              placeholder="Cantidad"
-              className="bg-[#F6FFFE] border-[#13CAC6] text-black text-sm placeholder:text-[#007863] p-2 my-1"
-            />
             <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              12.99$
+              20
             </h2>
-            <div className="text-black flex justify-center gap-1">
-              <Input
-                type="checkbox"
-                className="form-checkbox h-8 w-8 text-[#13CAC6] border-[#13CAC6] rounded-md transition duration-150 ease-in-out"
-              />
-            </div>
           </div>
           {/* Calculos de las sumatorias entre precios y cantidades*/}
-          <div className="grid grid-cols-5 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
-            <span></span>
+          <div className="grid grid-cols-3 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
             <h2 className="text-base text-black font-semibold text-header my-1.5 justify-center text-center">
               TOTAL
             </h2>
@@ -141,7 +176,6 @@ export default function page() {
             <h2 className="text-base text-black font-semibold text-header my-1.5 justify-center text-center">
               Suma de los precios
             </h2>
-            <span></span>
           </div>
         </div>
 

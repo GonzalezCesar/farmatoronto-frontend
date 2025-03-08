@@ -66,14 +66,6 @@ export default function Page() {
               />
             </div>
             <div className="m-6 flex gap-5">
-              <label className="text-[#024442] p-1 my-2"> Productos: </label>
-              <Input
-                type="number"
-                placeholder="Cantidad de productos proporcionados"
-                className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
-              />
-            </div>
-            <div className="m-6 flex gap-5">
               <label className="text-[#024442] p-1 my-2"> Sucursal: </label>
               <Select>
                 <SelectTrigger className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1">

@@ -65,7 +65,7 @@ export default function PurchaseForm() {
                 </Select>
               </div>
 
-              <div className="grid gap-2">
+              {/* <div className="grid gap-2">
                 <label className="text-xl">
                   Laboratorio que lo comercializa
                 </label>
@@ -79,7 +79,7 @@ export default function PurchaseForm() {
                     <SelectItem value="lab3">Laboratorio 3</SelectItem>
                   </SelectContent>
                 </Select>
-              </div>
+              </div> */}
 
               <div className="grid gap-2">
                 <label className="text-xl">Fecha de emisión</label>

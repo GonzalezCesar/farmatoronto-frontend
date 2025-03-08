@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
@@ -21,7 +21,7 @@ export default function Page() {
     >
       <Header />
       <main className="flex-grow container mx-auto px-4 py-8">
-      <div className="flex items-center justify-center mb-4">
+        <div className="flex items-center justify-center mb-4">
           <div className="absolute left-0 ml-4">
             <Link href="/PanelAdmin/Laboratory">
               <Button
@@ -67,16 +67,16 @@ export default function Page() {
             </div>
             <div className="m-6 flex gap-5">
               <label className="text-[#024442] p-1 my-2"> Proveedor: </label>
-                <Select>
-                  <SelectTrigger className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1">
-                    <SelectValue placeholder="Nombre del laboratorio" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="lab1">Laboratorio 1</SelectItem>
-                    <SelectItem value="lab2">Laboratorio 2</SelectItem>
-                    <SelectItem value="lab3">Laboratorio 3</SelectItem>
-                  </SelectContent>
-                </Select>
+              <Select>
+                <SelectTrigger className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1">
+                  <SelectValue placeholder="Nombre del laboratorio" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="lab1">Laboratorio 1</SelectItem>
+                  <SelectItem value="lab2">Laboratorio 2</SelectItem>
+                  <SelectItem value="lab3">Laboratorio 3</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
             <div className="m-6 flex gap-5">
               <label className="text-[#024442] p-1 my-2"> Precio: </label>
@@ -105,15 +105,15 @@ export default function Page() {
             <div className="m-6 flex gap-5">
               <label className="text-[#024442] p-1 my-2"> Sucursal: </label>
               <Select>
-                  <SelectTrigger className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1">
-                    <SelectValue placeholder="Sucursal de la farmacia" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="suc1">Sucursal 1</SelectItem>
-                    <SelectItem value="suc2">Sucursal 2</SelectItem>
-                    <SelectItem value="suc3">Sucursal 3</SelectItem>
-                  </SelectContent>
-                </Select>
+                <SelectTrigger className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1">
+                  <SelectValue placeholder="Sucursal de la farmacia" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="suc1">Sucursal 1</SelectItem>
+                  <SelectItem value="suc2">Sucursal 2</SelectItem>
+                  <SelectItem value="suc3">Sucursal 3</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
             <div className="m-6">
               <label className="text-[#024442] p-1 my-2"> Monodrogas: </label>
@@ -157,13 +157,13 @@ export default function Page() {
                     />
                   </div>
                 </div>
-                <div/>
+                <div />
               </div>
             </div>
           </form>
         </div>
         <div className="flex justify-center mt-6">
-        <Link href="/PanelAdmin/Medicines">
+          <Link href="/PanelAdmin/Medicines">
             <Button className="px-6 py-2 text-lg text-white bg-[#36C34B] hover:bg-[#2ca33e] transition-colors duration-[10s]">
               Registrar
             </Button>

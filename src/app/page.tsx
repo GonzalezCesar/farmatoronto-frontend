@@ -1,11 +1,10 @@
 "use client";
 
-import CartGrid from "@/components/cart-grid";
+import CartGrid from "@/components/CartGrid";
 import Navbar from "@/components/NavBar";
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 
 export default function Home() {
-
   return (
     <div className="min-h-screen bg-[#e0ffff]">
       <header className="bg-[rgb(0,84,82)] p-4">

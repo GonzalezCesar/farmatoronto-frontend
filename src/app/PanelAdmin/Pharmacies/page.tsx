@@ -1,8 +1,8 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
-import PharmacyThing from "@/components/pharmacyThing";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import PharmacyThing from "@/components/PharmacyThing";
 import { ArrowLeft, Pencil, Trash2 } from "lucide-react";
 import Link from "next/link";
 
@@ -80,7 +80,10 @@ export default function page() {
           </div>
         </div>
         <div className="flex flex-star">
-          <Link href="/PanelAdmin/Pharmacies/Employees" className="text-center mx-auto">
+          <Link
+            href="/PanelAdmin/Pharmacies/Employees"
+            className="text-center mx-auto"
+          >
             <Button
               type="submit"
               className="w-[3/10] font-bebas-neue font-bold bg-[#4875D8] hover:bg-[#35569B] transition-colors duration-[10s] text-white text-base rounded-lg m-3 text-center mx-auto"

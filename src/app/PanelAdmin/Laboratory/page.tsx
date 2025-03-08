@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import AdminThings from "@/components/adminThings";
+import AdminThings from "@/components/AdminThings";
 import { ArrowLeft, Pencil, Trash2 } from "lucide-react";
 import Link from "next/link";
 
@@ -33,8 +33,7 @@ export default function page() {
         </div>
 
         <div className="bg-white shadow-md rounded-lg p-4 block m-5">
-
-        <div className="flex flex-col md:flex-row items-center justify-center md:justify-between px-5 gap-4">
+          <div className="flex flex-col md:flex-row items-center justify-center md:justify-between px-5 gap-4">
             <AdminThings />
             <Link href="/PanelAdmin/Laboratory/Form">
               <Button className="bg-[#007863] text-white px-4 py-2 rounded-md flex items-center hover:bg-[#026553] transition-colors duration-[10s]">
@@ -79,7 +78,6 @@ export default function page() {
               </Button>
             </div>
           </div>
-          
         </div>
       </main>
       <Footer />

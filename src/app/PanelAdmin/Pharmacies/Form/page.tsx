@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
@@ -21,7 +21,7 @@ export default function Page() {
     >
       <Header />
       <main className="flex-grow container mx-auto px-4 py-8">
-      <div className="flex items-center justify-center mb-4">
+        <div className="flex items-center justify-center mb-4">
           <div className="absolute left-0 ml-4">
             <Link href="/PanelAdmin/Pharmacies">
               <Button
@@ -101,7 +101,7 @@ export default function Page() {
           </form>
         </div>
         <div className="flex justify-center mt-6">
-        <Link href="/PanelAdmin/Pharmacies">
+          <Link href="/PanelAdmin/Pharmacies">
             <Button className="px-6 py-2 text-lg text-white bg-[#36C34B] hover:bg-[#2ca33e] transition-colors duration-[10s]">
               Registrar
             </Button>

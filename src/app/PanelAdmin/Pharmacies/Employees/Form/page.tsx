@@ -87,6 +87,14 @@ export default function Page() {
               />
             </div>
             <div className="m-6 flex gap-2">
+              <label className="text-[#024442] p-1 my-2"> Contraseña: </label>
+              <Input
+                type="password"
+                placeholder="Contraseña"
+                className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
+              />
+            </div>
+            <div className="m-6 flex gap-2">
               <label className="text-[#024442] p-1 my-2"> Ingreso: </label>
               <Input
                 type="date"

@@ -95,13 +95,29 @@ export default function Page() {
               />
             </div>
             <div className="m-6 flex gap-2">
-              <label className="text-[#024442] p-1 my-2"> Ingreso: </label>
+              <label className="text-[#024442] p-1 my-2"> Fecha de nacimiento: </label>
+              <Input
+                type="date"
+                placeholder="Fecha de nacimiento"
+                className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
+              />
+            </div>
+            {/* <div className="m-6 flex gap-2">
+              <label className="text-[#024442] p-1 my-2"> Ingreso a la farmacia: </label>
               <Input
                 type="date"
                 placeholder="Fecha de ingreso a la farmacia"
                 className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
               />
             </div>
+            <div className="m-6 flex gap-2">
+              <label className="text-[#024442] p-1 my-2"> Último dia de trabajo: </label>
+              <Input
+                type="date"
+                placeholder="Fecha final de trabajo en la farmacia"
+                className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
+              />
+            </div> */}
             <div className="m-6 flex gap-5">
               <label className="text-[#024442] p-1 my-2"> Cargo actual: </label>
                 <Select>

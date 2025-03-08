@@ -43,7 +43,7 @@ export default function page() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-9 gap-2.5 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
+          <div className="grid grid-cols-10 gap-2.5 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
             <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
               Codigo
             </h2>
@@ -66,10 +66,13 @@ export default function page() {
               Email
             </h2>
             <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
-              Fecha de Ingreso
+              Fecha de Nacimiento
+            </h2>
+            <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
+              Cargo actual
             </h2>
           </div>
-          <div className="grid grid-cols-9 gap-2.5 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
+          <div className="grid grid-cols-10 gap-2.5 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
             <h2 className="text-sm text-black font-light text-header my-1.5 justify-center text-center">
               01
             </h2>
@@ -92,7 +95,10 @@ export default function page() {
               mjhf@gmail.com
             </h2>
             <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              02-02-2024
+              02-02-1998
+            </h2>
+            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
+              Administrador
             </h2>
             <div className="text-black flex justify-center gap-1">
               <Button className="bg-[#26BCB5] hover:bg-[#25CFC7] h-8 w-8">
@@ -104,6 +110,79 @@ export default function page() {
             </div>
           </div>
         </div>
+
+        <div className="mb-4 flex items-center justify-center">
+            <h2 className="text-6xl font-bold text-header mb-6 font-bebas-neue text-white text-shadow-outline tracking-wide">
+              ROTACION
+            </h2>
+          </div>
+        <div className="bg-white shadow-md rounded-lg p-4 block m-5">
+
+        <div className="flex flex-col md:flex-row items-center justify-center md:justify-between px-5 gap-4">
+            <AdminThings />
+            <Link href="/PanelAdmin/Pharmacies/Employees/formRotation">
+              <Button className="bg-[#007863] text-white px-4 py-2 rounded-md flex items-center hover:bg-[#026553] transition-colors duration-[10s]">
+                + Nuevo Registro
+              </Button>
+            </Link>
+        </div>
+
+          <div className="grid grid-cols-8 gap-2.5 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
+            <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
+              Codigo
+            </h2>
+            <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
+              Nombre
+            </h2>
+            <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
+              Apellido
+            </h2>
+            <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
+              Cargo
+            </h2>
+            <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
+              Fecha de Ingreso
+            </h2>
+            <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
+              Último día trabajado
+            </h2>
+            <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
+              Observaciones
+            </h2>
+          </div>
+          <div className="grid grid-cols-8 gap-2.5 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
+            <h2 className="text-sm text-black font-light text-header my-1.5 justify-center text-center">
+              01
+            </h2>
+            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
+              Fabiana
+            </h2>
+            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
+              Martínez
+            </h2>
+            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
+              Analista
+            </h2>
+            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
+              25/08/2015
+            </h2>
+            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
+              31/11/2022
+            </h2>
+            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
+              Se aburrió y se fue
+            </h2>
+            <div className="text-black flex justify-center gap-1">
+              <Button className="bg-[#26BCB5] hover:bg-[#25CFC7] h-8 w-8">
+                <Pencil />
+              </Button>
+              <Button className="bg-[#B12412] hover:bg-[#DE321B] h-8 w-8">
+                <Trash2 />
+              </Button>
+            </div>
+          </div>
+        </div>
+
         <div className="flex flex-star">
           <Button
             type="submit"

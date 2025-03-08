@@ -23,7 +23,7 @@ export default function Page() {
       <main className="flex-grow container mx-auto px-4 py-8">
       <div className="flex items-center justify-center mb-4">
           <div className="absolute left-0 ml-4">
-            <Link href="/PanelAdmin/Pharmacies">
+            <Link href="/PanelAdmin/Pharmacies/Employees">
               <Button
                 variant="ghost"
                 className="mb-8 bg-[#68e99d] hover:bg-[#68e99d]/90 h-12 w-12"
@@ -34,7 +34,7 @@ export default function Page() {
           </div>
           <div className="mb-4 flex items-center justify-center">
             <h1 className="text-5xl font-bold text-header mb-6 font-bebas-neue text-white text-shadow-outline tracking-wide">
-              REGISTRO DE NUEVA SUCURSAL
+              REGISTRO DE ROTACIÓN
             </h1>
           </div>
         </div>
@@ -42,66 +42,74 @@ export default function Page() {
         <div className="bg-white shadow-md rounded-lg p-4 block m-5 mx-auto max-w-[60%]">
           <form>
             <div className="m-6 flex gap-5">
-              <label className="text-[#024442] p-1 my-2"> Dirección: </label>
-              <Input
-                type="text"
-                placeholder="Ubicación de la farmacia"
-                className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
-              />
-            </div>
-            <div className="m-6 flex gap-5">
-              <label className="text-[#024442] p-1 my-2"> Contacto: </label>
-              <Input
-                type="email"
-                placeholder="Correo electrónico de la nueva sucursal"
-                className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
-              />
-            </div>
-            <div className="m-6 flex gap-5">
-              <label className="text-[#024442] p-1 my-2"> Nombre de la ciudad: </label>
-              <Input
-                type="text"
-                placeholder="Nombre de la ciudad"
-                className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
-              />
-            </div>
-            <div className="m-6 flex gap-5">
-              <label className="text-[#024442] p-1 my-2"> Estado: </label>
-              <Input
-                type="text"
-                placeholder="Estado donde se ubica la ciudad de la sucursal"
-                className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
-              />
-            </div>
-            <div className="m-6 flex gap-5">
-              <label className="text-[#024442] p-1 my-2"> Ciudad: </label>
-              <Select>
+              <label className="text-[#024442] p-1 my-2"> Nombre del empleado: </label>
+                <Select>
                   <SelectTrigger className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1">
-                    <SelectValue placeholder="Ciudad donde se encuentra la sucursal" />
+                    <SelectValue placeholder="Empleado" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="city1">Ciudad 1</SelectItem>
-                    <SelectItem value="city2">Ciudad 2</SelectItem>
-                    <SelectItem value="city3">Ciudad 3</SelectItem>
+                    <SelectItem value="empleado1">Persona1</SelectItem>
+                    <SelectItem value="empleado2">Persona2</SelectItem>
+                    <SelectItem value="empleado3">Persona3</SelectItem>
                   </SelectContent>
                 </Select>
             </div>
-            {/* <div className="m-6 flex gap-2">
-              <label className="text-[#024442] p-1 my-2">
-                {" "}
-                Ciudad:{" "}
-              </label>
+            <div className="m-6 flex gap-5">
+              <label className="text-[#024442] p-1 my-2"> Cargo ejercido: </label>
+                <Select>
+                  <SelectTrigger className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1">
+                    <SelectValue placeholder="Cargo a ejercer en la farmacia" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="cargo1">Administrador</SelectItem>
+                    <SelectItem value="cargo2">Farmacéutico</SelectItem>
+                    <SelectItem value="cargo3">Auxiliar de farmacia</SelectItem>
+                    <SelectItem value="cargo4">Pasante de farmacia</SelectItem>
+                    <SelectItem value="cargo5">Analista de compras</SelectItem>
+                  </SelectContent>
+                </Select>
+            </div>
+            <div className="m-6 flex gap-2">
+              <label className="text-[#024442] p-1 my-2"> Ingreso a la farmacia: </label>
               <Input
-                type="text"
-                placeholder="Ciudad donde se encuentra la sucursal"
+                type="date"
+                placeholder="Fecha de ingreso a la farmacia"
                 className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
               />
-            </div> */}
-            
+            </div>
+            <div className="m-6 flex gap-2">
+              <label className="text-[#024442] p-1 my-2"> Último dia de trabajo: </label>
+              <Input
+                type="date"
+                placeholder="Fecha final de trabajo en la farmacia"
+                className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
+              />
+            </div>
+            <div className="m-6 flex gap-2">
+              <label className="text-[#024442] p-1 my-2"> Observaciones: </label>
+              <Input
+                type="text"
+                placeholder="Descripción"
+                className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
+              />
+            </div>
+            <div className="m-6 flex gap-5">
+              <label className="text-[#024442] p-1 my-2"> Sucursal: </label>
+              <Select>
+                  <SelectTrigger className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1">
+                    <SelectValue placeholder="Sucursal de la farmacia" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="suc1">Sucursal 1</SelectItem>
+                    <SelectItem value="suc2">Sucursal 2</SelectItem>
+                    <SelectItem value="suc3">Sucursal 3</SelectItem>
+                  </SelectContent>
+                </Select>
+            </div>
           </form>
         </div>
         <div className="flex justify-center mt-6">
-        <Link href="/PanelAdmin/Pharmacies">
+        <Link href="/PanelAdmin/Pharmacies/Employees">
             <Button className="px-6 py-2 text-lg text-white bg-[#36C34B] hover:bg-[#2ca33e] transition-colors duration-[10s]">
               Registrar
             </Button>

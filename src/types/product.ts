@@ -7,6 +7,8 @@ export const productSchema = z.object({
   price: z.number(),
   presentation: z.string(),
   action: z.string(),
+  lab_name: z.string(),
+  amount: z.number()
 });
 
 export type Product = z.infer<typeof productSchema>

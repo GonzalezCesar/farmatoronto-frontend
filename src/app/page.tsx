@@ -21,6 +21,7 @@ export default function Home() {
         {/* Nueva sección de CartGrid */}
         <section>
           <h2 className="text-2xl font-bold mb-6 text-[#04232f]"></h2>
+          
           <CartGrid />
         </section>
       </main>

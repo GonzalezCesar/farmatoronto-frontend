@@ -27,7 +27,7 @@ export default function VistaProductos() {
           </div>
           <div className="mb-4 flex items-center justify-center">
             <h1 className="text-6xl font-bold text-header mb-6 font-bebas-neue text-white text-shadow-outline tracking-wide">
-              SUCURSALES
+              MEDICAMENTO
             </h1>
           </div>
         </div>

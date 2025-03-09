@@ -4,7 +4,7 @@ import React from "react";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import useUser from "@/hooks/useUser";
-import Header from "@/components/Header";
+import Header from "@/components/header";
 
 type Role =
   | "administrador"

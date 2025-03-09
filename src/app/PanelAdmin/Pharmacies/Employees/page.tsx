@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import AdminThings from "@/components/AdminThings";
+import AdminThings from "@/components/adminThings";
 import { ArrowLeft, Pencil, Trash2 } from "lucide-react";
 import Link from "next/link";
 

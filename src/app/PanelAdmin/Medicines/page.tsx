@@ -1,36 +1,46 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
-import Header from "@/components/header";
-import Footer from "@/components/Footer";
-import AdminThings from "@/components/adminThings";
-import { ArrowLeft, ChevronDown, Pencil, Trash2 } from "lucide-react";
-import Link from "next/link";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+"use client"
 
-{
-  /* <Pencil /> */
-}
-export default function page() {
+
+import { Button } from "@/components/ui/button"
+import Header from "@/components/Header"
+import Footer from "@/components/Footer"
+import AdminThings from "@/components/AdminThings"
+import { ArrowLeft, ChevronDown } from "lucide-react"
+import Link from "next/link"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { getProducts } from "@/services/products"
+import type { Product } from "@/types/product"
+import DataTable, { Column } from "@/components/DataTable"
+
+
+export default function MedicinesPage() {
+  
+  const columns: Column<Product>[] = [
+    { key: "id", header: "Codigo" },
+    { key: "name", header: "Nombre" },
+    { key: "maincomponent", header: "Componente principal" },
+    { key: "presentation", header: "Presentacion" },
+    { key: "lab_name", header: "Laboratorio" },
+    {
+      key: "price",
+      header: "Precio",
+      render: (item: Product) => `$${item.price.toFixed(2)}`,
+    },
+    { key: "amount", header: "Total stock" },
+    { key: "action", header: "Acción" },
+    // Columna vacía para mantener el grid-cols-10 (9 columnas + acciones)
+    { key: "", header: "" },
+  ]
+
   return (
-    <div
-      className="flex flex-col min-h-screen"
-      style={{ backgroundColor: "#E0FFFF" }}
-    >
+    <div className="flex flex-col min-h-screen" style={{ backgroundColor: "#E0FFFF" }}>
       <Header />
 
       <main className="flex-grow container mx-auto px-4 py-8">
         <div className="flex items-center justify-center mb-4">
           <div className="absolute left-0 ml-4">
             <Link href="/PanelAdmin">
-              <Button
-                variant="ghost"
-                className="mb-8 bg-[#68e99d] hover:bg-[#68e99d]/90 h-12 w-12"
-              >
+              <Button variant="ghost" className="mb-8 bg-[#68e99d] hover:bg-[#68e99d]/90 h-12 w-12">
                 <ArrowLeft className="h-6 w-6" />
               </Button>
             </Link>
@@ -70,7 +80,17 @@ export default function page() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-10 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
+          <DataTable<Product>
+            columns={columns}
+            fetchData={getProducts as (page: number) => Promise<Product[]>}
+            editRoute="/PanelAdmin/Medicines/Edit"
+            onDelete={(id) => {
+              console.log(`Eliminar medicamento con ID: ${id}`)
+              // Aquí implementarías la lógica para eliminar el medicamento
+            }}
+          />
+
+          {/* <div className="grid grid-cols-10 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
             <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
               Codigo
             </h2>
@@ -93,49 +113,70 @@ export default function page() {
               Total stock
             </h2>
             <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
-              Acciones
-            </h2>
-            <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
               Monodrogas
             </h2>
-          </div>
-          <div className="grid grid-cols-10 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
-            <h2 className="text-sm text-black font-light text-header my-1.5 justify-center text-center">
-              01
+            <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
+              Acciones
             </h2>
-            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              Rifaximina
-            </h2>
-            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              Alcohol
-            </h2>
-            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              Pastillas
-            </h2>
-            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              Laboratorio Angi
-            </h2>
-            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              30$
-            </h2>
-            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              21
-            </h2>
-            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              Analgesico para dolor de cabeza
-            </h2>
-            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              Monodroga
-            </h2>
-            <div className="text-black flex justify-center gap-1">
-              <Button className="bg-[#26BCB5] hover:bg-[#25CFC7] h-8 w-8">
-                <Pencil />
-              </Button>
-              <Button className="bg-[#B12412] hover:bg-[#DE321B] h-8 w-8">
-                <Trash2 />
-              </Button>
-            </div>
-          </div>
+        
+          </div> */}
+
+          {/* {loading ? (
+            <div className="text-center py-4">Cargando medicamentos...</div>
+          ) : error ? (
+            <div className="text-center py-4 text-red-500">{error}</div>
+          ) : medicines.length === 0 ? (
+            <div className="text-center py-4">No hay medicamentos disponibles</div>
+          ) : (
+            medicines.map((medicine) => (
+              <div
+                key={medicine.id}
+                className="grid grid-cols-10 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify"
+              >
+                <div className="text-center">{medicine.id || "-"}</div>
+                <div className="text-center">{medicine.name || "-"}</div>
+                <div className="text-center">{medicine.maincomponent || "-"}</div>
+                <div className="text-center">{medicine.presentation || "-"}</div>
+                <div className="text-center">{medicine.lab_name || "-"}</div>
+                <div className="text-center">${medicine.price?.toFixed(2) || "-"}</div>
+                <div className="text-center">{medicine.amount || "0"}</div>
+                {/* <div className="text-center">{medicine.action?.join(", ") || "-"}</div> */}
+                {/* <div className="text-center"></div>
+                <div className="text-center">{medicine.action || "0"}</div>
+                <div className="text-black flex justify-center gap-1">
+                  <Link href={`/PanelAdmin/Medicines/Edit/${medicine.id}`}>
+                    <Button className="bg-[#26BCB5] hover:bg-[#25CFC7] h-8 w-8">
+                      <Pencil className="h-4 w-4" />
+                    </Button>
+                  </Link>
+                  <Button
+                    className="bg-[#B12412] hover:bg-[#DE321B] h-8 w-8"
+                    onClick={() => {
+                      // Aquí puedes implementar la lógica para eliminar
+                      if (window.confirm("¿Estás seguro de que deseas eliminar este medicamento?")) {
+                        // Lógica de eliminación
+                      }
+                    }}
+                  >
+                    <Trash2 className="h-4 w-4" />
+                  </Button>
+                </div>
+              </div>
+            ))
+          )}
+
+          {/* Paginación */}
+          {/* <div className="flex justify-center mt-4 gap-2">
+            <Button onClick={handlePrevPage} disabled={currentPage === 0 || loading} variant="outline" size="sm">
+              <ChevronLeft className="h-4 w-4" />
+              Anterior
+            </Button>
+            <span className="flex items-center px-3">Página {currentPage + 1}</span>
+            <Button onClick={handleNextPage} disabled={medicines.length < 5 || loading} variant="outline" size="sm">
+              Siguiente
+              <ChevronRight className="h-4 w-4" />
+            </Button> 
+          </div>  */}
         </div>
 
         <div className="mb-4 flex items-center justify-center">
@@ -202,5 +243,6 @@ export default function page() {
       </main>
       <Footer />
     </div>
-  );
+  )
 }
+

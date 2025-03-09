@@ -57,29 +57,8 @@ export default function page() {
               Teléfono
             </h2>
           </div>
-          <div className="grid grid-cols-5 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
-            <h2 className="text-sm text-black font-light text-header my-1.5 justify-center text-center">
-              01
-            </h2>
-            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              Laboratorio ANGI
-            </h2>
-            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              Av. Chilemex
-            </h2>
-            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              Teléfono
-            </h2>
-            <div className="text-black flex justify-center gap-1">
-              <Button className="bg-[#26BCB5] hover:bg-[#25CFC7] h-8 w-8">
-                <Pencil />
-              </Button>
-              <Button className="bg-[#B12412] hover:bg-[#DE321B] h-8 w-8">
-                <Trash2 />
-              </Button>
-            </div>
-          </div>
         </div>
+          
       </main>
       <Footer />
     </div>

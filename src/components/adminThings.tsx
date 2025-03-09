@@ -12,7 +12,7 @@ import { Search } from 'lucide-react';
 export default function AdminThings() {
   return (
     <div className="flex items-center w-full">
-      <div className="flex items-center bg-[#E0FFFF] rounded-full px-4 py-2">
+      {/* <div className="flex items-center bg-[#E0FFFF] rounded-full px-4 py-2">
         <input
           type="text"
           placeholder="Buscar"
@@ -21,7 +21,7 @@ export default function AdminThings() {
         <div className="w-8 h-8 bg-[#007863] rounded-full flex items-center justify-center ml-2">
           <Search className='text-white' />
         </div>
-      </div>
+      </div> */}
 
       <div className="flex-1"></div>
 

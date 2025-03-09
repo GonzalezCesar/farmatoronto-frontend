@@ -1,8 +1,9 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import Header from "@/components/Header";
+import Header from "@/components/header";
 import Footer from "@/components/Footer";
-import Generalthing from "@/components/GeneralThing";
+// import Generalthing from "@/components/GeneralThing";
+import AdminThings from "@/components/adminThings";
 import { ArrowLeft, Pencil, Trash2 } from "lucide-react";
 import Link from "next/link";
 
@@ -35,7 +36,8 @@ export default function page() {
 
         <div className="bg-white shadow-md rounded-lg p-4 m-5">
           <div className="flex flex-col md:flex-row items-center justify-center md:justify-between px-5 gap-4">
-            <Generalthing />
+            {/* <Generalthing /> */}
+            <AdminThings />
           </div>
 
           <div className="grid grid-cols-7 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">

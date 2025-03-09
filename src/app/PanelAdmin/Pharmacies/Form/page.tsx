@@ -58,6 +58,22 @@ export default function Page() {
               />
             </div>
             <div className="m-6 flex gap-5">
+              <label className="text-[#024442] p-1 my-2"> Nombre de la ciudad: </label>
+              <Input
+                type="text"
+                placeholder="Nombre de la ciudad"
+                className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
+              />
+            </div>
+            <div className="m-6 flex gap-5">
+              <label className="text-[#024442] p-1 my-2"> Estado: </label>
+              <Input
+                type="text"
+                placeholder="Estado donde se ubica la ciudad de la sucursal"
+                className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
+              />
+            </div>
+            <div className="m-6 flex gap-5">
               <label className="text-[#024442] p-1 my-2"> Ciudad: </label>
               <Select>
                   <SelectTrigger className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1">

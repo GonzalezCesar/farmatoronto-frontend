@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PharmacyThing from "@/components/PharmacyThing";
+import PharmacyThing from "@/components/pharmacyThing";
 import { ArrowLeft, Pencil, Trash2 } from "lucide-react";
 import Link from "next/link";
 
@@ -35,12 +35,12 @@ export default function page() {
         <div className="bg-white shadow-md rounded-lg p-4 block m-5">
           <PharmacyThing />
           {/* Atributos de la BD*/}
-          <div className="grid grid-cols-5 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
+          <div className="grid grid-cols-6 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
             <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
               Codigo
             </h2>
             <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
-              Ubicación
+              Dirección
             </h2>
             <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
               Contacto
@@ -48,9 +48,12 @@ export default function page() {
             <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
               Ciudad
             </h2>
+            <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
+              Estado
+            </h2>
           </div>
           {/* Campos a llenar */}
-          <div className="grid grid-cols-5 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
+          <div className="grid grid-cols-6 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
             <h2 className="text-sm text-black font-light text-header my-1.5 justify-center text-center">
               01
             </h2>
@@ -62,6 +65,9 @@ export default function page() {
             </h2>
             <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
               Ciudad Guayana
+            </h2>
+            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
+              Bolívar
             </h2>
             <div className="text-black flex justify-center gap-1">
               <Button className="bg-[#26BCB5] hover:bg-[#25CFC7] h-8 w-8">

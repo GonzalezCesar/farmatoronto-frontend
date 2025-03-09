@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "@/components/Header";
+import Header from "@/components/header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,7 +23,7 @@ export default function Page() {
       <main className="flex-grow container mx-auto px-4 py-8">
         <div className="flex items-center justify-center mb-4">
           <div className="absolute left-0 ml-4">
-            <Link href="/PanelAdmin/Laboratory">
+            <Link href="/PanelAdmin/Medicines">
               <Button
                 variant="ghost"
                 className="mb-8 bg-[#68e99d] hover:bg-[#68e99d]/90 h-12 w-12"
@@ -94,13 +94,31 @@ export default function Page() {
                 className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
               />
             </div>
-            <div className="m-6 flex gap-5">
-              <label className="text-[#024442] p-1 my-2"> Acción: </label>
-              <Input
-                type="text"
-                placeholder="Acción terapéutica del medicamento"
-                className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
-              />
+            <div className="m-6 block gap-5">
+              <div className="m-6 flex gap-5">
+                <label className="text-[#024442] p-1 my-2">Acción terapéutica:</label>
+                <Select>
+                  <SelectTrigger className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1">
+                    <SelectValue placeholder="Acción terapéutica" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="accTerap1">Acción 1</SelectItem>
+                    <SelectItem value="accTerap2">Acción 2</SelectItem>
+                    <SelectItem value="accTerap3">Acción 3</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <label className="text-[#024442] p-1 my-2">Nueva acción terapéutica:</label>
+                <div className="flex items-center gap-2">
+                  <Input
+                    type="text"
+                    placeholder="Nueva acción terapéutica"
+                    className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1 flex-grow"
+                  />
+                  <Button className="bg-[#007863] text-white px-4 py-2 flex items-center justify-center rounded-md hover:bg-[#026553] transition-colors duration-[10s]">Nueva acción</Button>
+                </div>
+              </div>
             </div>
             <div className="m-6 flex gap-5">
               <label className="text-[#024442] p-1 my-2"> Sucursal: </label>

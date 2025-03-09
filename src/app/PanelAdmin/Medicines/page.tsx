@@ -4,13 +4,13 @@
 import { Button } from "@/components/ui/button"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
-import AdminThings from "@/components/adminThings"
-import { ArrowLeft, ChevronDown, Pencil, Trash2 } from "lucide-react"
+import { ArrowLeft, ChevronDown } from "lucide-react"
 import Link from "next/link"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { getProducts } from "@/services/products"
 import type { Product } from "@/types/product"
 import DataTable, { Column } from "@/components/DataTable"
+import AdminThings from "@/components/adminThings"
 
 
 export default function MedicinesPage() {

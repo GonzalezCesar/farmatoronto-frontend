@@ -88,3 +88,20 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Estilos para la tabla */
+.lab-table-container { 
+  @apply grid gap-4;
+}
+
+.lab-table-container > div { 
+  @apply grid gap-4;
+}
+
+.medicines-table .grid-cols-\[repeat\(10\,minmax\(0\,1fr\)\)\] {
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+
+.laboratory-table .grid-cols-\[repeat\(5\,minmax\(0\,1fr\)\)\] {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}

@@ -11,7 +11,7 @@ type Role =
   | "farmaceutico"
   | "auxiliar"
   | "pasante"
-  | "analista";
+  | "analista"
 
 const panelsByRole: Record<Role, { name: string; path: string }[]> = {
   administrador: [
@@ -39,6 +39,7 @@ export default function Home() {
 
   const role = user?.user_type as Role;
   const panels = panelsByRole[role] ?? [];
+
 
   return (
     <div

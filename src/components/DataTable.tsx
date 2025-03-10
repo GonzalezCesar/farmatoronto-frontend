@@ -29,19 +29,55 @@ interface DataTableProps<T extends TableItem> {
   className?: string
 }
 
-// Componente con grid-cols-10 fijo
+// Función para determinar la clase de grid basada en el número de columnas
+function getGridClass(columnsCount: number): string {
+  switch (columnsCount) {
+    case 1:
+      return "grid-cols-1"
+    case 2:
+      return "grid-cols-2"
+    case 3:
+      return "grid-cols-3"
+    case 4:
+      return "grid-cols-4"
+    case 5:
+      return "grid-cols-5"
+    case 6:
+      return "grid-cols-6"
+    case 7:
+      return "grid-cols-7"
+    case 8:
+      return "grid-cols-8"
+    case 9:
+      return "grid-cols-9"
+    case 10:
+      return "grid-cols-10"
+    case 11:
+      return "grid-cols-11"
+    case 12:
+      return "grid-cols-12"
+    default:
+      return "grid-cols-4" // Valor predeterminado
+  }
+}
+
+// Componente con grid dinámico basado en el número de columnas
 export default function DataTable<T extends TableItem>({
   columns,
   fetchData,
   editRoute,
   onDelete,
-  pageSize = 5,
+  pageSize = 2,
   className = "",
 }: DataTableProps<T>) {
   const [data, setData] = useState<T[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [currentPage, setCurrentPage] = useState(0)
+
+  // Calcular el número total de columnas (incluyendo la columna de acciones si es necesaria)
+  const totalColumns = columns.length + (editRoute || onDelete ? 1 : 0)
+  const gridClass = getGridClass(totalColumns)
 
   useEffect(() => {
     const loadData = async () => {
@@ -77,8 +113,8 @@ export default function DataTable<T extends TableItem>({
 
   return (
     <div className={`bg-white shadow-md rounded-lg p-4 ${className}`}>
-      {/* Encabezados de la tabla con grid-cols-10 fijo */}
-      <div className="grid grid-cols-10 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
+      {/* Encabezados de la tabla con grid dinámico */}
+      <div className={`grid ${gridClass} gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify`}>
         {columns.map((column) => (
           <h2
             key={column.key}
@@ -105,7 +141,7 @@ export default function DataTable<T extends TableItem>({
         data.map((item) => (
           <div
             key={item.id}
-            className="grid grid-cols-10 gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify"
+            className={`grid ${gridClass} gap-4 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify`}
           >
             {columns.map((column) => (
               <div key={column.key} className="text-center">

@@ -20,6 +20,7 @@ export default function useUser() {
         id: z.number()
       });
       const parsed = tokenSchema.parse(decoded);
+      console.log(parsed)
 
       const data = await api.get(`auth/users/${parsed.id}`)
       return userSchema.parse(data.data)

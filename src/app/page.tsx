@@ -27,14 +27,15 @@ export default function Home() {
       <main className="flex-grow p-8">
         <div className="mb-4 flex items-center justify-center">
           <h1 className="text-6xl font-bold text-header mb-6 font-bebas-neue text-white text-shadow-outline tracking-wide">
-            CATALAGO
+            CATALOGO
           </h1>
         </div>
 
         <section>
           {isLoading && (
-            <div className="text-center text-emerald-600 text-xl">
-              Loading...
+            <div className="text-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#007863] mx-auto mb-4"></div>
+              <p className="text-lg text-[#007863]">Cargando datos...</p>
             </div>
           )}
           <ProductList products={products} />

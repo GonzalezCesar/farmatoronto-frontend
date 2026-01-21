@@ -1,29 +1,19 @@
-"use client"
-import React, { useState } from "react";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import React from "react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { WithContext as ReactTags, Tag } from 'react-tag-input';
-
-const KeyCodes = {
-  comma: 188,
-  enter: 13,
-};
-
-const delimiters = [KeyCodes.comma, KeyCodes.enter];
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function Page() {
-  const [tags, setTags] = useState<Tag[]>([]);
-
-  const handleDelete = (i: number) => {
-    setTags(tags.filter((tag, index) => index !== i));
-  };
-
-  const handleAddition = (tag: Tag) => {
-    setTags([...tags, tag]);
-  };
-
   return (
     <div
       className="flex flex-col min-h-screen"
@@ -31,10 +21,22 @@ export default function Page() {
     >
       <Header />
       <main className="flex-grow container mx-auto px-4 py-8">
-        <div className="mb-4 flex items-center justify-center">
-          <h1 className="text-5xl font-bold text-header mb-6 font-bebas-neue text-white text-shadow-outline tracking-wide">
-            REGISTRO DE NUEVO EMPLEADO
-          </h1>
+        <div className="flex items-center justify-center mb-4">
+          <div className="absolute left-0 ml-4">
+            <Link href="/PanelAdmin/Pharmacies/Employees">
+              <Button
+                variant="ghost"
+                className="mb-8 bg-[#68e99d] hover:bg-[#68e99d]/90 h-12 w-12"
+              >
+                <ArrowLeft className="h-6 w-6" />
+              </Button>
+            </Link>
+          </div>
+          <div className="mb-4 flex items-center justify-center">
+            <h1 className="text-5xl font-bold text-header mb-6 font-bebas-neue text-white text-shadow-outline tracking-wide">
+              REGISTRO DE NUEVO EMPLEADO
+            </h1>
+          </div>
         </div>
 
         <div className="bg-white shadow-md rounded-lg p-4 block m-5 mx-auto max-w-[60%]">
@@ -85,7 +87,23 @@ export default function Page() {
               />
             </div>
             <div className="m-6 flex gap-2">
-              <label className="text-[#024442] p-1 my-2"> Ingreso: </label>
+              <label className="text-[#024442] p-1 my-2"> Contraseña: </label>
+              <Input
+                type="password"
+                placeholder="Contraseña"
+                className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
+              />
+            </div>
+            <div className="m-6 flex gap-2">
+              <label className="text-[#024442] p-1 my-2"> Fecha de nacimiento: </label>
+              <Input
+                type="date"
+                placeholder="Fecha de nacimiento"
+                className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
+              />
+            </div>
+            {/* <div className="m-6 flex gap-2">
+              <label className="text-[#024442] p-1 my-2"> Ingreso a la farmacia: </label>
               <Input
                 type="date"
                 placeholder="Fecha de ingreso a la farmacia"
@@ -93,53 +111,49 @@ export default function Page() {
               />
             </div>
             <div className="m-6 flex gap-2">
-              <label className="text-[#024442] p-1 my-2"> Cargo actual: </label>
+              <label className="text-[#024442] p-1 my-2"> Último dia de trabajo: </label>
               <Input
-                type="text"
-                placeholder="Cargo a ejercer en la farmacia"
+                type="date"
+                placeholder="Fecha final de trabajo en la farmacia"
                 className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
               />
-            </div>
+            </div> */}
             <div className="m-6 flex gap-5">
-              <label className="text-[#024442] p-1 my-2"> Cargos pasados: </label>
-              <ReactTags
-                tags={tags}
-                delimiters={delimiters}
-                handleDelete={handleDelete}
-                handleAddition={handleAddition}
-                inputFieldPosition="bottom"
-                autocomplete
-                placeholder="Ingrese cargos pasados"
-                classNames={{
-                  tagInput: "bg-[#F6FFFE] border border-[#13CAC6] p-2 my-1 text-black rounded-md",
-                  tag: "bg-[#E0FFFF] text-[#024442] border-[#13CAC6] rounded p-1 m-1 rounded-md",
-                  remove: "text-[#13CAC6] hover:text-[#007863]"
-                }}
-              />
+              <label className="text-[#024442] p-1 my-2"> Cargo actual: </label>
+              <Select>
+                <SelectTrigger className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1">
+                  <SelectValue placeholder="Cargo a ejercer en la farmacia" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="cargo1">Administrador</SelectItem>
+                  <SelectItem value="cargo2">Farmacéutico</SelectItem>
+                  <SelectItem value="cargo3">Auxiliar de farmacia</SelectItem>
+                  <SelectItem value="cargo4">Pasante de farmacia</SelectItem>
+                  <SelectItem value="cargo5">Analista de compras</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
             <div className="m-6 flex gap-5">
               <label className="text-[#024442] p-1 my-2"> Sucursal: </label>
-              <select
-                className="bg-[#F6FFFE] text-base border border-[#13CAC6] text-black p-2 my-1 rounded-md w-[4/10]"
-                defaultValue=""
-              >
-                <option value="" disabled className="text-gray-900">
-                  Ubicación de la sucursal a trabajar
-                </option>
-                <option value="1" className="text-gray-900">
-                  Farmacia 1
-                </option>
-                <option value="2" className="text-gray-900">
-                  Farmacia 2
-                </option>
-              </select>
+              <Select>
+                <SelectTrigger className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1">
+                  <SelectValue placeholder="Sucursal de la farmacia" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="suc1">Sucursal 1</SelectItem>
+                  <SelectItem value="suc2">Sucursal 2</SelectItem>
+                  <SelectItem value="suc3">Sucursal 3</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
           </form>
         </div>
         <div className="flex justify-center mt-6">
-          <Button className="px-6 py-2 text-lg text-white bg-[#36C34B] hover:bg-[#2ca33e] transition-colors duration-[10s]">
-            Registrar
-          </Button>
+          <Link href="/PanelAdmin/Pharmacies/Employees">
+            <Button className="px-6 py-2 text-lg text-white bg-[#36C34B] hover:bg-[#2ca33e] transition-colors duration-[10s]">
+              Registrar
+            </Button>
+          </Link>
         </div>
       </main>
       <Footer />

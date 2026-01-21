@@ -23,7 +23,7 @@ export default function Page() {
       <main className="flex-grow container mx-auto px-4 py-8">
         <div className="flex items-center justify-center mb-4">
           <div className="absolute left-0 ml-4">
-            <Link href="/PanelAdmin/Laboratory">
+            <Link href="/PanelAdmin/Medicines">
               <Button
                 variant="ghost"
                 className="mb-8 bg-[#68e99d] hover:bg-[#68e99d]/90 h-12 w-12"
@@ -34,7 +34,7 @@ export default function Page() {
           </div>
           <div className="mb-4 flex items-center justify-center">
             <h1 className="text-5xl font-bold text-header mb-6 font-bebas-neue text-white text-shadow-outline tracking-wide">
-              REGISTRO DE NUEVO PROVEEDOR
+              REGISTRO DE MONODROGA
             </h1>
           </div>
         </div>
@@ -45,43 +45,22 @@ export default function Page() {
               <label className="text-[#024442] p-1 my-2"> Nombre: </label>
               <Input
                 type="text"
-                placeholder="Nombre del laboratorio a registrar"
+                placeholder="Nombre de la monodroga"
                 className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
               />
             </div>
             <div className="m-6 flex gap-5">
-              <label className="text-[#024442] p-1 my-2"> Dirección: </label>
+              <label className="text-[#024442] p-1 my-2"> Descripción: </label>
               <Input
                 type="text"
-                placeholder="Ubicación del laboratorio"
+                placeholder="Información de la monodroga"
                 className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
               />
-            </div>
-            <div className="m-6 flex gap-5">
-              <label className="text-[#024442] p-1 my-2"> Teléfono: </label>
-              <Input
-                type="tel"
-                placeholder="Teléfono de contacto del laboratorio"
-                className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1"
-              />
-            </div>
-            <div className="m-6 flex gap-5">
-              <label className="text-[#024442] p-1 my-2"> Sucursal: </label>
-              <Select>
-                <SelectTrigger className="bg-[#F6FFFE] border-[#13CAC6] text-black placeholder:text-[#007863] p-2 my-1">
-                  <SelectValue placeholder="Sucursal de la farmacia" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="suc1">Sucursal 1</SelectItem>
-                  <SelectItem value="suc2">Sucursal 2</SelectItem>
-                  <SelectItem value="suc3">Sucursal 3</SelectItem>
-                </SelectContent>
-              </Select>
             </div>
           </form>
         </div>
         <div className="flex justify-center mt-6">
-          <Link href="/PanelAdmin/Laboratory">
+          <Link href="/PanelAdmin/Medicines">
             <Button className="px-6 py-2 text-lg text-white bg-[#36C34B] hover:bg-[#2ca33e] transition-colors duration-[10s]">
               Registrar
             </Button>

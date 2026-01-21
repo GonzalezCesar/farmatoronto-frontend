@@ -1,51 +1,36 @@
-"use client";
+"use client"
 
-import type React from "react";
-import { useFilters } from "../hooks/useFilters";
-
-interface Product {
-  id: number;
-  title: string;
-  price: number;
-  category: string;
-  description: string;
-  image: string;
-}
+import type React from "react"
+import type { Product } from "@/types/product"
+import Link from "next/link"
 
 interface ProductListProps {
-  products: Product[];
+  products: Product[]
 }
 
 export const ProductList: React.FC<ProductListProps> = ({ products }) => {
-  const { filterProducts } = useFilters();
-  const filteredProducts = filterProducts(products);
-
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-stone-400">
-      {filteredProducts.map((product) => (
-        <div
-          key={product.id}
-          className="border rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300"
-        >
-          {/* <Image
-            // src={product.image || "/placeholder.svg"}
-            alt={product.title}
-            width={200}
-            height={200}
-            className="w-full h-48 object-cover mb-4 rounded"
-          /> */}
-          <h3 className="text-lg font-semibold mb-2">{product.title}</h3>
-          {/* <p className="text-gray-600 mb-4 h-20 overflow-hidden">{product.description}</p> */}
-          <div className="flex justify-between items-center">
-            <span className="text-xl font-bold text-blue-600">
-              ${product.price.toFixed(2)}
-            </span>
-            <span className="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded">
-              {product.category}
-            </span>
-          </div>
-        </div>
-      ))}
+    <div className="contsiner px-4 sm:px-6 lg:px-8 mx-auto">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 justify-items-center">
+        {products.map((product) => (
+          <li
+            key={product.id}
+            className="flex flex-col gap-4 rounded-md bg-blue-300 text-white w-72 p-6 text-center border text-card-foreground group relative bg-gradient-to-br from-[#c0fff5] to-[#538c83]/10 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+          >
+
+            <Link href="/producto-descripcion" className="hover:underline">
+              <h3 className="text-lg font-semibold m-0">{product.name}</h3>
+            </Link>
+
+            <div className="items-center text-center">
+              <span className="text-xl font-bold text-blue-600 text-center">${product.price.toFixed(2)}</span>
+            </div>
+
+            <div className="flex gap-1 justify-center products-buttons">{/* Add your buttons here */}</div>
+          </li>
+        ))}
+      </ul>
     </div>
-  );
-};
+  )
+}
+

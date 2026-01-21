@@ -1,48 +1,57 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { ProductList } from "@/components/ProductList";
-import { getProducts } from "@/services/products";
-import type { Product } from "@/types/product";
-import CartGrid from "@/components/cart-grid";
 import Navbar from "@/components/NavBar";
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
+import { useInfiniteQuery } from "@tanstack/react-query";
+import { getProducts } from "@/services/products";
+import { ProductList } from "@/components/ProductList";
 
 export default function Home() {
-  const [products, setProducts] = useState<Product[]>([]);
-
-  useEffect(() => {
-    (async () => {
-      const result = await getProducts();
-      setProducts(result);
-    })();
+  const { data, isLoading, fetchNextPage, hasNextPage } = useInfiniteQuery({
+    queryKey: ["products"],
+    queryFn: ({ pageParam = 0 }) => getProducts(pageParam),
+    initialPageParam: 0,
+    getNextPageParam: (lastPage, allPages) => {
+      return lastPage.length ? allPages.length : undefined;
+    },
   });
 
+  const products = data?.pages.flat() || [];
+
   return (
-    <div className="min-h-screen bg-[#e0ffff]">
+    <div className="flex flex-col min-h-screen bg-[#e0ffff]">
       <header className="bg-[rgb(0,84,82)] p-4">
         <Navbar />
       </header>
 
-      <main className="p-8">
+      <main className="flex-grow p-8">
         <div className="mb-4 flex items-center justify-center">
           <h1 className="text-6xl font-bold text-header mb-6 font-bebas-neue text-white text-shadow-outline tracking-wide">
-            CATALAGO
+            CATALOGO
           </h1>
         </div>
 
-        {/* Sección original de ProductList */}
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold mb-6 text-[#04232f]"></h2>
-          <ProductList products={products} />
-        </section>
-
-        {/* Nueva sección de CartGrid */}
         <section>
-          <h2 className="text-2xl font-bold mb-6 text-[#04232f]"></h2>
-          <CartGrid />
+          {isLoading && (
+            <div className="text-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#007863] mx-auto mb-4"></div>
+              <p className="text-lg text-[#007863]">Cargando datos...</p>
+            </div>
+          )}
+          <ProductList products={products} />
+
+          <div className="flex justify-center mt-8">
+            <button
+              onClick={() => fetchNextPage()}
+              disabled={!hasNextPage}
+              className="px-4 py-2 bg-[rgb(0,84,82)] text-white rounded-md disabled:opacity-50"
+            >
+              Cargar más
+            </button>
+          </div>
         </section>
       </main>
+
       <Footer />
     </div>
   );

@@ -9,10 +9,10 @@ import { Button } from "./ui/button";
 import { ChevronDown } from "lucide-react";
 import { Search } from 'lucide-react';
 
-export default function AdminThings() {
+export default function Generalthing() {
   return (
     <div className="flex items-center w-full">
-      {/* <div className="flex items-center bg-[#E0FFFF] rounded-full px-4 py-2">
+      <div className="flex items-center bg-[#E0FFFF] rounded-full px-4 py-2">
         <input
           type="text"
           placeholder="Buscar"
@@ -21,7 +21,7 @@ export default function AdminThings() {
         <div className="w-8 h-8 bg-[#007863] rounded-full flex items-center justify-center ml-2">
           <Search className='text-white' />
         </div>
-      </div> */}
+      </div>
 
       <div className="flex-1"></div>
 
@@ -42,24 +42,6 @@ export default function AdminThings() {
         </DropdownMenu>
       
         <div className="flex-1"></div>
-
-      {/* <div className="flex-1 flex justify-end">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button
-              variant="outline"
-              className="gap-2 px-4 py-2 rounded-md bg-[#007863] hover:bg-[#026553] text-white transition-colors duration-[10s] flex justify-center items-center"
-            >
-              Monodrogas
-              <ChevronDown className="h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuItem>Monodroga 1</DropdownMenuItem>
-            <DropdownMenuItem>Monodroga 2</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </div> */}
     </div>
   );
 }

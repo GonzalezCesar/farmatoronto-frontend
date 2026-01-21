@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { FiltersProvider } from "../context/filters";
-import Providers from "@/components/providers";
-
+import Providers from "@/components/Providers";
+// import "styles.css"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -13,16 +13,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+}: Readonly<{
+  children: React.ReactNode
+}>) {
   return (
     <Providers>
       <html lang="es">
         <body className={inter.className}>
-          <FiltersProvider>{children}</FiltersProvider>
+          <FiltersProvider>
+            <div className="flex flex-col min-h-screen" style={{ backgroundColor: "#E0FFFF" }}>
+              {children}
+            </div>
+          </FiltersProvider>
         </body>
       </html>
     </Providers>
-  );
+  )
 }

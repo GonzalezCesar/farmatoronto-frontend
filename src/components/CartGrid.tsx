@@ -1,6 +1,6 @@
 import type React from "react"
 import { Pill, Syringe, BugIcon, SmileIcon } from "lucide-react"
-import MedicationCard  from "@/components/medication-cart"
+import MedicationCard  from "@/components/MedicationCart"
 
 type MedicationCardProps = React.ComponentProps<typeof MedicationCard>
 

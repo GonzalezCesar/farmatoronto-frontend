@@ -1,11 +1,26 @@
+"use client"
+
 import React from "react";
 import { Button } from "@/components/ui/button";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
-import AdminThings from "@/components/adminThings";
-import { Pencil, Trash2 } from "lucide-react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import AdminThings from "@/components/AdminThings";
+import { ArrowLeft, Pencil, Trash2 } from "lucide-react";
+import Link from "next/link";
+import DataTable, { Column } from "@/components/DataTable";
+import { Employee } from "@/types/employee";
+import { getEmployees } from "@/services/labdatos";
 
 export default function page() {
+  const columns: Column<Employee>[] = [
+    { key: "id", header: "Código" },
+    { key: "name", header: "Nombre" },
+    { key: "last_name", header: "Apellido" },
+    { key: "position", header: "Cargo" },
+    { key: "address", header: "Dirección" },
+    { key: "phonenumber", header: "Teléfono" },
+  ]
+
   return (
     <div
       className="flex flex-col min-h-screen"
@@ -13,15 +28,62 @@ export default function page() {
     >
       <Header />
       <main className="flex-grow container mx-auto px-4 py-8">
-        <div className="mb-4 flex items-center justify-center">
-          <h1 className="text-6xl font-bold text-header mb-6 font-bebas-neue text-white text-shadow-outline tracking-wide">
-            EMPLEADOS
-          </h1>
+        <div className="flex items-center justify-center mb-4">
+          <div className="absolute left-0 ml-4">
+            <Link href="/PanelAdmin/Pharmacies">
+              <Button
+                variant="ghost"
+                className="mb-8 bg-[#68e99d] hover:bg-[#68e99d]/90 h-12 w-12"
+              >
+                <ArrowLeft className="h-6 w-6" />
+              </Button>
+            </Link>
+          </div>
+          <div className="mb-4 flex items-center justify-center">
+            <h1 className="text-6xl font-bold text-header mb-6 font-bebas-neue text-white text-shadow-outline tracking-wide">
+              EMPLEADOS
+            </h1>
+          </div>
         </div>
 
         <div className="bg-white shadow-md rounded-lg p-4 block m-5">
-          <AdminThings />
-          <div className="grid grid-cols-9 gap-2.5 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
+          <div className="flex flex-col md:flex-row items-center justify-center md:justify-between px-5 gap-4">
+            <AdminThings />
+            <Link href="/PanelAdmin/Pharmacies/Employees/Form">
+              <Button className="bg-[#007863] text-white px-4 py-2 rounded-md flex items-center hover:bg-[#026553] transition-colors duration-[10s]">
+                + Nuevo Registro
+              </Button>
+            </Link>
+          </div>
+
+          <DataTable<Employee>
+            columns={columns}
+            fetchData={getEmployees}
+            editRoute="/PanelAdmin/Pharmacies/Employees/Edit"
+            onDelete={(id) => {
+              console.log(`Eliminar empleado con ID: ${id}`)
+              // Aquí implementarías la lógica para eliminar el empleado
+            }}
+            className="text-center"
+          />
+        </div>
+
+        <div className="mb-4 flex items-center justify-center">
+          <h2 className="text-6xl font-bold text-header mb-6 font-bebas-neue text-white text-shadow-outline tracking-wide">
+            ROTACION
+          </h2>
+        </div>
+        <div className="bg-white shadow-md rounded-lg p-4 block m-5">
+          <div className="flex flex-col md:flex-row items-center justify-center md:justify-between px-5 gap-4">
+            <AdminThings />
+            <Link href="/PanelAdmin/Pharmacies/Employees/formRotation">
+              <Button className="bg-[#007863] text-white px-4 py-2 rounded-md flex items-center hover:bg-[#026553] transition-colors duration-[10s]">
+                + Nuevo Registro
+              </Button>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-8 gap-2.5 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
             <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
               Codigo
             </h2>
@@ -32,22 +94,19 @@ export default function page() {
               Apellido
             </h2>
             <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
-              Cédula
-            </h2>
-            <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
-              Dirección
-            </h2>
-            <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
-              Teléfono
-            </h2>
-            <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
-              Email
+              Cargo
             </h2>
             <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
               Fecha de Ingreso
             </h2>
+            <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
+              Último día trabajado
+            </h2>
+            <h2 className="text-base text-[#727473] font-semibold text-header my-1.5 justify-center text-center">
+              Observaciones
+            </h2>
           </div>
-          <div className="grid grid-cols-9 gap-2.5 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
+          <div className="grid grid-cols-8 gap-2.5 m-1 mb-3 border-b-2 border-gray-30 justify-center text-justify">
             <h2 className="text-sm text-black font-light text-header my-1.5 justify-center text-center">
               01
             </h2>
@@ -58,19 +117,16 @@ export default function page() {
               Martínez
             </h2>
             <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              23456789
+              Analista
             </h2>
             <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              Av. Atlántico
+              25/08/2015
             </h2>
             <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              0426543789
+              31/11/2022
             </h2>
             <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              mjhf@gmail.com
-            </h2>
-            <h2 className="text-sm text-black font-ligth text-header my-1.5 justify-center text-center">
-              02-02-2024
+              Se aburrió y se fue
             </h2>
             <div className="text-black flex justify-center gap-1">
               <Button className="bg-[#26BCB5] hover:bg-[#25CFC7] h-8 w-8">
@@ -82,6 +138,7 @@ export default function page() {
             </div>
           </div>
         </div>
+
         <div className="flex flex-star">
           <Button
             type="submit"

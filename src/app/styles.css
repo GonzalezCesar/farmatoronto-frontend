@@ -1,0 +1,9 @@
+/* Sobrescribir el color del SVG dentro del botón de eliminar */
+.custom-remove-button svg {
+    fill: #024442 !important; /* Color principal que coincide con el texto */
+  }
+  
+  .custom-remove-button:hover svg {
+    fill: #013330 !important; /* Color más oscuro al hacer hover */
+  }
+  

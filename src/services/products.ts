@@ -1,12 +1,19 @@
-import { Product } from "@/types/product";
+import { api } from "@/lib/api/axios";
+import { Product, productSchema } from "@/types/product";
 
-export const getProducts = async (): Promise<Product[]> => {
-  // TO DO: Validar los datos del backend
+export const getProducts = async (currentPage: number): Promise<Product[]> => {
+  try {
+    const response = await api.get(`/adminview/medicines?offset=${currentPage * 2}&limit=2`);
+    console.log("data", response.data);
 
-  const reponse = await fetch("http://localhost:8081/v1/health");
-  const data = await reponse.json();
-  
-  return data;
+    // Extraer el array 'items' de la respuesta
+    const items = response.data.items;
+
+    // Parsear el array de items con el esquema
+    return productSchema.array().parse(items);
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    // Manejar el error adecuadamente (por ejemplo, lanzar una excepción o devolver un array vacío)
+    throw error; // Propagar el error para que el componente lo maneje
+  }
 };
-
-
